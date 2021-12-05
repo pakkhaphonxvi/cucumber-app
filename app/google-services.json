@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "769269029133",
+    "firebase_url": "https://cucumber-db-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "cucumber-db",
+    "storage_bucket": "cucumber-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769269029133:android:e40494d0687a59d818b844",
+        "android_client_info": {
+          "package_name": "com.pakkhaphon.cucumber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769269029133-1c2p2matid5boqlrac5hq8tfv55gcluj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pakkhaphon.cucumber",
+            "certificate_hash": "4c5dd4681d4f9dcb3027bab347b40a3713b7c4b1"
+          }
+        },
+        {
+          "client_id": "769269029133-i7051oo26ba50808rqbkhdjmgvfe7tu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5vz6-e5sCR98FGmEkJq3U3VWsn3k_RGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769269029133-i7051oo26ba50808rqbkhdjmgvfe7tu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
