@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudioProjects/cucumber/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/cucumber/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/cucumber/app/src/main/res/layout/activity_register_choice.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/cucumber/app/src/main/res/layout/activity_sender_register.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
