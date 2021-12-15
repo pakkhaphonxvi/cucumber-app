@@ -20,4 +20,6 @@
     <string name="open">open</string>
     <string name="close">close</string>
 
+    <string name="title_spinner">Sex</string>
+
 </resources>

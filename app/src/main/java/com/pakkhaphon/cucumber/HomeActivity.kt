@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -22,6 +23,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         val drawerlayout = findViewById<DrawerLayout>(R.id.drawerlayout)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -36,6 +38,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val menu_button = findViewById<NavigationView>(R.id.menu_button)
         menu_button.setNavigationItemSelectedListener(this)
+
+        val chat_button = findViewById<Button>(R.id.button_chat)
+        chat_button.setOnClickListener {
+            changeFragment(Chat())
+        }
 
     }
 
@@ -57,6 +64,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_setting ->{
                 changeFragment(Setting())
+            }
+            R.id.nav_profile -> {
+                changeFragment(Profile())
             }
             R.id.nav_signout -> {
                 googleSignInClient.signOut()
