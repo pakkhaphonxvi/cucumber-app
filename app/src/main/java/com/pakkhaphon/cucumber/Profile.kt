@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -77,6 +78,7 @@ class Profile : Fragment() {
             }
         })
 
+
         //uploadimageperson
         uploadprofils = view.findViewById(R.id.profile_image)
         uploadprofils.setOnClickListener {
@@ -143,20 +145,20 @@ class Profile : Fragment() {
 
         spinner_sex.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-               if(pet_sex_target[position] == "Male")
-               {
-                   spinnerAdapterSex?.remove("Sex")
+                if(pet_sex_target[position] == "Male")
+                {
+//                   spinnerAdapterSex?.remove("Sex")
                    pet_sex = "Male"
-               }
+                }
                 else if(pet_sex_target[position] == "Female")
                 {
-                    spinnerAdapterSex?.remove("Sex")
+//                    spinnerAdapterSex?.remove("Sex")
                     pet_sex = "Female"
                 }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                Toast.makeText(context, "nothing", Toast.LENGTH_SHORT).show()
+
             }
 
         }
@@ -175,6 +177,33 @@ class Profile : Fragment() {
             userpetDatabase.updateChildren(data)
 
         }
+
+        //retrieved data from userpet db
+        userpetDatabase.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val link = snapshot.child("image").value.toString()
+                val showimagepet = view.findViewById<CircleImageView>(R.id.image_pet)
+                Picasso.get().load(link).noFade().into(showimagepet)
+                val txt_petname = view.findViewById<TextInputEditText>(R.id.edit_petname)
+                txt_petname.setText(snapshot.child("petname").value.toString())
+                val txt_info = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
+                txt_info.setText(snapshot.child("info").value.toString())
+                val txt_sex = snapshot.child("sex").value.toString()
+                if(txt_sex == "Male")
+                {
+                    spinner_sex.setSelection(spinnerAdapterSex!!.getPosition("Male"))
+                }
+                else if(txt_sex == "Female")
+                {
+                    spinner_sex.setSelection(spinnerAdapterSex!!.getPosition("Female"))
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+
 
         return view
     }
