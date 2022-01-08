@@ -3,14 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chat"
+    tools:context=".FriendsList"
     android:background="#00aa00">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="chat"
-        android:textSize="25sp"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/Recycle_friendsList"
+        tools:listitem="@layout/friends_list">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>

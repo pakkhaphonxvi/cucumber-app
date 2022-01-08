@@ -1,10 +1,14 @@
 package com.pakkhaphon.cucumber
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -41,8 +45,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val chat_button = findViewById<Button>(R.id.button_chat)
         chat_button.setOnClickListener {
-            changeFragment(Chat())
+            changeFragment(FriendsList())
         }
+
 
     }
 
@@ -82,6 +87,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val fragment = supportFragmentManager.beginTransaction()
         fragment.replace(R.id.fragment_space, frag).addToBackStack(null).commit()
     }
+
 
 }
 
