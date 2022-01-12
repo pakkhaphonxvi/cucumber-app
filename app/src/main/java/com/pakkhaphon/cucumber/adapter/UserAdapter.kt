@@ -18,22 +18,16 @@ import com.pakkhaphon.cucumber.model.Usersmodel
 
 
 class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>):
-    RecyclerView.Adapter<UserAdapter.UsersViewHolder>(){
-
+    RecyclerView.Adapter<UserAdapter.UsersViewHolder>() {
     val userDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo")
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
         val view:View = LayoutInflater.from(context).inflate(R.layout.users_list,parent,false)
-
         return UsersViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
         val currentuser = useList[position]
-
         holder.users_name_txt.text = currentuser.username
-
-
     }
 
     override fun getItemCount(): Int {

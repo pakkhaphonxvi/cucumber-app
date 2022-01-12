@@ -39,15 +39,13 @@ class Home : Fragment() {
         userRecycleView.layoutManager = LinearLayoutManager(context)
         userRecycleView.adapter = usersAdapter
 
-
-
         // call users list
         usersDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 usersList.clear()
                 var currentfriend:Friendsmodel? = null
                 val ar = arrayListOf<String>()
-                for(item1 in snapshot.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").children){
+                for(item1 in snapshot.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").children) {
                     currentfriend = item1.getValue(Friendsmodel::class.java)
                     ar.add(currentfriend?.fid!!)
                 }
@@ -59,17 +57,15 @@ class Home : Fragment() {
 
                     if((currentUsers?.uid != FirebaseAuth.getInstance().currentUser!!.uid) && currentUsers?.uid != ar[0] ) {
                         usersList.add(currentUsers!!)
-
                     }
                 }
                 usersAdapter.notifyDataSetChanged()
             }
-            override fun onCancelled(error: DatabaseError) {
 
+            override fun onCancelled(error: DatabaseError) {
+                // OnCancel
             }
         })
-
         return view
     }
-
 }

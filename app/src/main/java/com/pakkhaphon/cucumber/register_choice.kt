@@ -19,14 +19,10 @@ class register_choice : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_choice)
-
         val btsingup = findViewById<Button>(R.id.buttonsingup)
-
-
         btsingup.setOnClickListener {
             register()
         }
-
     }
 
     private fun register() {
@@ -61,13 +57,9 @@ class register_choice : AppCompatActivity() {
             attention = inputrbsender.text.toString()
         }
 
-
-        mAuth.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener { task ->
-                if(task.isSuccessful){
-
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener {
+                task -> if(task.isSuccessful) {
                     databaseref = FirebaseDatabase.getInstance().reference.child("Users").child(mAuth.currentUser!!.uid)
-
                     val data = HashMap<String,Any>()
                     data["uid"] = mAuth.currentUser!!.uid
                     data["image"] = ""
@@ -77,14 +69,12 @@ class register_choice : AppCompatActivity() {
                     data["gender"] = gender
                     data["attention"] = attention
 
-                    databaseref.updateChildren(data).addOnCompleteListener { task ->
-                        if(task.isSuccessful){
-                            startActivity(Intent(this@register_choice,MainActivity::class.java))
-                        }
+                    databaseref.updateChildren(data).addOnCompleteListener {
+                            task -> if(task.isSuccessful) {
+                                startActivity(Intent(this@register_choice,MainActivity::class.java))
+                            }
                     }
-
                 }
-            }
-
+        }
     }
 }

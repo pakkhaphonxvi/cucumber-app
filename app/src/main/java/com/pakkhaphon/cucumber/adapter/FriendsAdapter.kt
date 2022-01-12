@@ -16,18 +16,15 @@ import com.pakkhaphon.cucumber.model.Friendsmodel
 
 class FriendsAdapter(val context: Context?,val friendList:ArrayList<Friendsmodel>):
     RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
-
     private var Userdatabase = FirebaseDatabase.getInstance().reference.child("Users")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendsViewHolder {
         val view:View = LayoutInflater.from(context).inflate(R.layout.friends_list,parent,false)
-
         return FriendsViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: FriendsViewHolder, position: Int) {
         val currentFriends = friendList[position]
-
         Userdatabase.child(currentFriends.fid.toString()).addValueEventListener(object :ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 holder.friends_name_txt.text = snapshot.child("username").value.toString()
@@ -39,7 +36,7 @@ class FriendsAdapter(val context: Context?,val friendList:ArrayList<Friendsmodel
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-
+                //On cancelled
             }
         })
     }
@@ -51,5 +48,4 @@ class FriendsAdapter(val context: Context?,val friendList:ArrayList<Friendsmodel
     class FriendsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val friends_name_txt = itemView.findViewById<TextView>(R.id.friends_name_txt)
     }
-
 }

@@ -43,7 +43,7 @@ class Profile : Fragment() {
         userpetDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("Pet")
 
         //retrieved data from users db
-        userDatabase.addValueEventListener(object :ValueEventListener{
+        userDatabase.addValueEventListener(object :ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val link = snapshot.child("image").value.toString()
                 val showimage = view.findViewById<CircleImageView>(R.id.profile_image)
@@ -53,7 +53,7 @@ class Profile : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                // onCancel
             }
         })
 
@@ -74,10 +74,9 @@ class Profile : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                // onCancel
             }
         })
-
 
         //uploadimageperson
         uploadprofils = view.findViewById(R.id.profile_image)
@@ -91,7 +90,6 @@ class Profile : Fragment() {
         layout_person.isVisible = false
         val layout_pet = view.findViewById<LinearLayout>(R.id.layout_Pet)
         layout_pet.isVisible = false
-
         val button_person = view.findViewById<Button>(R.id.button_person)
         button_person.setOnClickListener {
             layout_person.isVisible = true
@@ -118,8 +116,8 @@ class Profile : Fragment() {
             val road = view.findViewById<TextInputEditText>(R.id.edit_road)
             val area = view.findViewById<TextInputEditText>(R.id.edit_area)
             val province = view.findViewById<TextInputEditText>(R.id.edit_province)
-
             val data = HashMap<String,Any>()
+
             data["address"] = address.text.toString()
             data["road"] = road.text.toString()
             data["province"] = province.text.toString()
@@ -158,9 +156,8 @@ class Profile : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                // onNothingSelected
             }
-
         }
 
         val button_save_pet = view.findViewById<Button>(R.id.button_save_pet)
@@ -168,8 +165,8 @@ class Profile : Fragment() {
 
             val petname = view.findViewById<TextInputEditText>(R.id.edit_petname)
             val petinfo = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
-
             val data = HashMap<String,Any>()
+
             data["petname"] = petname.text.toString()
             data["sex"] = pet_sex
             data["info"] = petinfo.text.toString()
@@ -179,7 +176,7 @@ class Profile : Fragment() {
         }
 
         //retrieved data from userpet db
-        userpetDatabase.addValueEventListener(object :ValueEventListener{
+        userpetDatabase.addValueEventListener(object :ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val link = snapshot.child("image").value.toString()
                 val showimagepet = view.findViewById<CircleImageView>(R.id.image_pet)
@@ -200,17 +197,14 @@ class Profile : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                // onCancelled
             }
         })
-
-
         return view
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null)
         {
             selectphotouri = data.data
@@ -229,7 +223,6 @@ class Profile : Fragment() {
             val bitmapDrawable = BitmapDrawable(bitmap)
             uploadlocation.setImageIcon(null)
             uploadlocation.setBackgroundDrawable(bitmapDrawable)
-
             uploadimagelocation(uri)
         }
         if(requestCode == 2 && resultCode == Activity.RESULT_OK && data != null)
@@ -239,14 +232,14 @@ class Profile : Fragment() {
             val bitmapDrawable = BitmapDrawable(bitmap)
             uploadpet.setImageIcon(null)
             uploadpet.setBackgroundDrawable(bitmapDrawable)
-
             uploadimagepet(uri)
         }
-
     }
 
     private fun uploadimagepet(uri: Uri?) {
-        if(uri == null){ return }
+        if(uri == null) {
+            return
+        }
 
         val filename = UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("/image/$filename")
@@ -255,15 +248,15 @@ class Profile : Fragment() {
             ref.downloadUrl.addOnSuccessListener {
                 val userpet = HashMap<String,Any>()
                 userpet["image"] = it.toString()
-
                 userpetDatabase.updateChildren(userpet)
             }
         }
-
     }
 
     private fun uploadimagelocation(uri: Uri?) {
-        if(uri == null){ return }
+        if(uri == null) {
+            return
+        }
 
         val filename = UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("/image/$filename")
@@ -272,15 +265,15 @@ class Profile : Fragment() {
             ref.downloadUrl.addOnSuccessListener {
                 val userlocation = HashMap<String,Any>()
                 userlocation["image"] = it.toString()
-
                 userlocationDatabase.updateChildren(userlocation)
             }
         }
-
     }
 
     private fun uploadimageperson() {
-        if(selectphotouri == null){ return }
+        if(selectphotouri == null) {
+            return
+        }
 
         val filename = UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("/image/$filename")
@@ -294,8 +287,4 @@ class Profile : Fragment() {
             }
         }
     }
-
-
-
-
 }

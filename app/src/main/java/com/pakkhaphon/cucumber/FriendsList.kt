@@ -25,8 +25,7 @@ class FriendsList : Fragment() {
         val view = inflater.inflate(R.layout.fragment_friendslist, container, false)
 
         mAuth = FirebaseAuth.getInstance()
-        friendsDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid)
-            .child("ConnectedTo")
+        friendsDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo")
 
         friendsList = ArrayList()
         friendsAdapter = FriendsAdapter(context,friendsList)
@@ -35,23 +34,20 @@ class FriendsList : Fragment() {
         friendRecycleView.adapter = friendsAdapter
 
         // call friends list
-        friendsDatabase.addValueEventListener(object :ValueEventListener{
+        friendsDatabase.addValueEventListener(object :ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 friendsList.clear()
-                for(item in snapshot.children){
-
+                for(item in snapshot.children) {
                     val currentFriends = item.getValue(Friendsmodel::class.java)
                     friendsList.add(currentFriends!!)
-
                 }
                 friendsAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                // On Cancel
             }
         })
         return view
     }
-
 }

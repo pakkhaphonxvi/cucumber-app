@@ -24,20 +24,17 @@ class MainActivity : AppCompatActivity() {
         Auth = FirebaseAuth.getInstance()
         SignUp_button.setOnClickListener{
             val i = Intent(this,register_choice::class.java)
-//            val Intent = Intent(this,register_choice::class.java)
             startActivity(i)
         }
 
         SignIn_button.setOnClickListener {
             signin()
         }
-
-
     }
 
     private fun checkuser() {
         val firebaseUser = firebaseAuth.currentUser
-        if(firebaseUser != null){
+        if(firebaseUser != null) {
             startActivity(Intent(this@MainActivity,HomeActivity::class.java))
             finish()
         }
@@ -60,10 +57,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this@MainActivity,HomeActivity::class.java))
             }
         }
-
-
     }
-
-
 }
 

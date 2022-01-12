@@ -66,31 +66,26 @@ class Chat : AppCompatActivity() {
 
 
         MessageDatabase.child("chat").child(senderRoom).child("message")
-            .addValueEventListener(object :ValueEventListener{
+            .addValueEventListener(object :ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-
                     messageList.clear()
-
-                    for(item in snapshot.children){
-
+                    for(item in snapshot.children) {
                         val message = item.getValue(Messagemodel::class.java)
                         messageList.add(message!!)
-
                     }
                     messageAdapter.notifyDataSetChanged()
                     chatRecycleView.scrollToPosition(messageAdapter.itemCount - 1)
                 }
-
                 override fun onCancelled(error: DatabaseError) {
-
+                    //On cancelled
                 }
             })
 
-        messageBox.setOnFocusChangeListener(object :View.OnFocusChangeListener{
+        messageBox.setOnFocusChangeListener(object :View.OnFocusChangeListener {
             override fun onFocusChange(v: View?, hasFocus: Boolean) {
-                messageBox.addTextChangedListener(object :TextWatcher{
+                messageBox.addTextChangedListener(object :TextWatcher {
                     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+                        //BeforeTextChanged
                     }
 
                     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -103,21 +98,17 @@ class Chat : AppCompatActivity() {
                     }
 
                     override fun afterTextChanged(s: Editable?) {
-
+                        // AfterTextChanged
                     }
                 })
-
-
-                    chatRecycleView.scrollToPosition(messageAdapter.itemCount - 1)
-
-
+                chatRecycleView.scrollToPosition(messageAdapter.itemCount - 1)
             }
         })
 
         chatRecycleView.addOnLayoutChangeListener(object :View.OnLayoutChangeListener{
             override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
-                if(bottom < oldBottom){
-                    chatRecycleView.postDelayed(object :Runnable{
+                if(bottom < oldBottom) {
+                    chatRecycleView.postDelayed(object :Runnable {
                         override fun run() {
                             chatRecycleView.smoothScrollToPosition(messageAdapter.itemCount)
                         }
@@ -126,10 +117,7 @@ class Chat : AppCompatActivity() {
             }
         })
 
-
-
         sentButton.setOnClickListener {
-
             val message = messageBox.text.toString()
             val messageObject = Messagemodel(message,senderUid)
 //            val data = HashMap<String,Any>()
@@ -138,12 +126,11 @@ class Chat : AppCompatActivity() {
 
 
             MessageDatabase.child("chat").child(senderRoom).child("message").push().setValue(messageObject).addOnCompleteListener {
-                if(it.isSuccessful){
+                if(it.isSuccessful) {
                     MessageDatabase.child("chat").child(receiveRoom).child("message").push().setValue(messageObject)
                 }
             }
             messageBox.setText("")
-
         }
 
     }
@@ -151,16 +138,12 @@ class Chat : AppCompatActivity() {
     fun View.showKeyboard() {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0)
-
     }
 
     fun View.hideKeyboard() {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(windowToken,0)
-
     }
-
-
 }
 
 

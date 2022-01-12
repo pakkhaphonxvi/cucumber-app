@@ -38,8 +38,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerlayout.addDrawerListener(toggle)
         toggle.syncState()
 
-
-
         val menu_button = findViewById<NavigationView>(R.id.menu_button)
         menu_button.setNavigationItemSelectedListener(this)
 
@@ -47,8 +45,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         chat_button.setOnClickListener {
             changeFragment(FriendsList())
         }
-
-
     }
 
     private fun checkuser() {
@@ -87,7 +83,5 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val fragment = supportFragmentManager.beginTransaction()
         fragment.replace(R.id.fragment_space, frag).addToBackStack(null).commit()
     }
-
-
 }
 
