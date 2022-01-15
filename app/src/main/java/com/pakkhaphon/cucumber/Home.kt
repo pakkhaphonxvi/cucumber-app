@@ -25,6 +25,8 @@ class Home : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var usersDatabase: DatabaseReference
 
+    private lateinit var friendsList: ArrayList<Friendsmodel>
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -39,6 +41,7 @@ class Home : Fragment() {
         userRecycleView.layoutManager = LinearLayoutManager(context)
         userRecycleView.adapter = usersAdapter
 
+        friendsList = ArrayList()
         // call users list
         usersDatabase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -50,13 +53,22 @@ class Home : Fragment() {
                     ar.add(currentfriend?.fid!!)
                 }
 
-
-                for(item in snapshot.children) {
-                    val currentUsers = item.getValue(Usersmodel::class.java)
-                    Log.d("home", "2: ${currentUsers?.uid}")
-
-                    if((currentUsers?.uid != FirebaseAuth.getInstance().currentUser!!.uid) && currentUsers?.uid != ar[0] ) {
-                        usersList.add(currentUsers!!)
+                for(itemU in snapshot.children) {
+                    var notExist: Boolean = true
+                    val currentUsers = itemU.getValue(Usersmodel::class.java)
+                    val iterator = ar.iterator()
+                    if(currentUsers?.uid != FirebaseAuth.getInstance().currentUser!!.uid) {
+                        friend@ while (iterator.hasNext()) {
+                            val itemF = iterator.next()
+                            if(currentUsers?.uid == itemF) {
+                                notExist = false
+                                iterator.remove()
+                                break@friend
+                            }
+                        }
+                        if(notExist) {
+                            usersList.add(currentUsers!!)
+                        }
                     }
                 }
                 usersAdapter.notifyDataSetChanged()
