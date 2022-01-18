@@ -29,7 +29,7 @@ class Profile : Fragment() {
     var selectphotouri: Uri? = null
     lateinit var uploadprofils:CircleImageView
     lateinit var userDatabase:DatabaseReference
-    lateinit var uploadlocation:CircleImageView
+    lateinit var uploadlocation:ImageView
     lateinit var userlocationDatabase:DatabaseReference
     lateinit var userpetDatabase:DatabaseReference
     lateinit var uploadpet:CircleImageView
@@ -61,7 +61,7 @@ class Profile : Fragment() {
         userlocationDatabase.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val link = snapshot.child("image").value.toString()
-                val showimagelocal = view.findViewById<CircleImageView>(R.id.image_location)
+                val showimagelocal = view.findViewById<ImageView>(R.id.image_location)
                 Picasso.get().load(link).noFade().into(showimagelocal)
                 val txt_address = view.findViewById<TextInputEditText>(R.id.edit_address)
                 txt_address.setText(snapshot.child("address").value.toString())

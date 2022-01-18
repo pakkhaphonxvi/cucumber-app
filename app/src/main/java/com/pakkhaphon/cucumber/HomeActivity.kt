@@ -23,11 +23,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var firebaseAuth:FirebaseAuth
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        if(savedInstanceState == null){
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_space,Home()).commitAllowingStateLoss()
+        }
+
         val drawerlayout = findViewById<DrawerLayout>(R.id.drawerlayout)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -45,6 +51,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         chat_button.setOnClickListener {
             changeFragment(FriendsList())
         }
+
+
+
     }
 
     private fun checkuser() {

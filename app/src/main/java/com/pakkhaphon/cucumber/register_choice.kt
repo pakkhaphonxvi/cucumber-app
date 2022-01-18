@@ -62,7 +62,7 @@ class register_choice : AppCompatActivity() {
                     databaseref = FirebaseDatabase.getInstance().reference.child("Users").child(mAuth.currentUser!!.uid)
                     val data = HashMap<String,Any>()
                     data["uid"] = mAuth.currentUser!!.uid
-                    data["image"] = ""
+                    data["image"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fperson-icon.png?alt=media&token=70867895-3dce-42c1-ad78-2778d3a08dd1"
                     data["username"] = username
                     data["password"] = password
                     data["email"] = email
@@ -72,6 +72,14 @@ class register_choice : AppCompatActivity() {
                     databaseref.updateChildren(data).addOnCompleteListener {
                             task -> if(task.isSuccessful) {
                                 startActivity(Intent(this@register_choice,MainActivity::class.java))
+                                val userdata = FirebaseDatabase.getInstance().reference.child("Users").child(mAuth.currentUser!!.uid).child("Local")
+                                val data = HashMap<String,Any>()
+                                data["address"] = ""
+                                data["area"] = ""
+                                data["image"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fhome-icon.jpg?alt=media&token=fa484be3-75e8-4ab5-b8de-dbe2a062068f"
+                                data["province"] = ""
+                                data["road"] = ""
+                                userdata.updateChildren(data)
                             }
                     }
                 }

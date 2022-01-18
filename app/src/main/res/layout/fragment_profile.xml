@@ -155,10 +155,10 @@
                             android:id="@+id/edit_province"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <ImageView
                         android:id="@+id/image_location"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
                         android:src="@drawable/iu1"/>
 
                     <Button
