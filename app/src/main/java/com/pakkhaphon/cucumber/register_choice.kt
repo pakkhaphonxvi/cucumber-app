@@ -76,10 +76,22 @@ class register_choice : AppCompatActivity() {
                                 val data = HashMap<String,Any>()
                                 data["address"] = ""
                                 data["area"] = ""
-                                data["image"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fhome-icon.jpg?alt=media&token=fa484be3-75e8-4ab5-b8de-dbe2a062068f"
+                                data["home_image"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fhome-icon.jpg?alt=media&token=fa484be3-75e8-4ab5-b8de-dbe2a062068f"
+                                data["home_image1"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fhome-icon.jpg?alt=media&token=fa484be3-75e8-4ab5-b8de-dbe2a062068f"
+                                data["home_image2"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fhome-icon.jpg?alt=media&token=fa484be3-75e8-4ab5-b8de-dbe2a062068f"
                                 data["province"] = ""
                                 data["road"] = ""
-                                userdata.updateChildren(data)
+                                userdata.setValue(data)
+                                val petdata = FirebaseDatabase.getInstance().reference.child("Users").child(mAuth.currentUser!!.uid).child("Pet")
+                                val data1 = HashMap<String,Any>()
+                                data1["pet_profile"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fdog-icon.png?alt=media&token=d67c854c-09ae-4274-a893-2784348f821e"
+                                data1["pet_image"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fdog-icon.png?alt=media&token=d67c854c-09ae-4274-a893-2784348f821e"
+                                data1["pet_image1"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fdog-icon.png?alt=media&token=d67c854c-09ae-4274-a893-2784348f821e"
+                                data1["pet_image2"] = "https://firebasestorage.googleapis.com/v0/b/cucumber-db.appspot.com/o/image%2Fdog-icon.png?alt=media&token=d67c854c-09ae-4274-a893-2784348f821e"
+                                data1["info"] = ""
+                                data1["petname"] = ""
+                                data1["sex"] = ""
+                                petdata.setValue(data1)
                             }
                     }
                 }

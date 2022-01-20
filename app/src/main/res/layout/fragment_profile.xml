@@ -161,6 +161,18 @@
                         android:layout_height="300dp"
                         android:src="@drawable/iu1"/>
 
+                    <ImageView
+                        android:id="@+id/image_location1"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/iu1"/>
+
+                    <ImageView
+                        android:id="@+id/image_location2"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/iu1"/>
+
                     <Button
                         android:id="@+id/button_save_person"
                         android:layout_width="match_parent"
@@ -195,7 +207,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/image_pet"
+                        android:id="@+id/pet_profile"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/iu1"
@@ -222,6 +234,22 @@
                             android:id="@+id/edit_info_pet"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/pet_image"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/iu1"/>
+                    <ImageView
+                        android:id="@+id/pet_image1"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/iu1"/>
+                    <ImageView
+                        android:id="@+id/pet_image2"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/iu1"/>
 
                     <Button
                         android:id="@+id/button_save_pet"

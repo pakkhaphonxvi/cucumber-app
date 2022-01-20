@@ -8,15 +8,17 @@
         <entry key="..\:/AndroidStudioProjects/cucumber/app/src/main/res/layout/activity_sender_register.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/btn_round.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/button_bg.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/button_login_page_bg.xml" value="0.2450657894736842" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/circle.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/edittext_login_page.xml" value="0.2450657894736842" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/message_box_bg.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/receive_round.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/sent_round.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/drawable/spinner_bg.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_home.xml" value="0.17" />
-        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_main.xml" value="0.35625" />
-        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_register_choice.xml" value="0.33" />
+        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_register_choice.xml" value="0.25" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_sender_register.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/activity_test.xml" value="0.21354166666666666" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/feed.xml" value="0.27708333333333335" />
@@ -24,13 +26,15 @@
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/fragment_friendslist.xml" value="0.25" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/fragment_profile_detail.xml" value="0.3392210144927536" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/friends_list.xml" value="0.25" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/menu_bar.xml" value="0.27708333333333335" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/receive.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/sent.xml" value="0.25" />
-        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/users_list.xml" value="0.3523550724637681" />
+        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/layout/users_list.xml" value="0.25" />
         <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/menu/menu_bar.xml" value="0.33" />
+        <entry key="..\:/Users/lenovo/Desktop/cucumber/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3880208333333333" />
       </map>
     </option>
   </component>

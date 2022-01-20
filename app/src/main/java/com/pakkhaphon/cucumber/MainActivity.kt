@@ -3,8 +3,10 @@ package com.pakkhaphon.cucumber
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -46,15 +48,28 @@ class MainActivity : AppCompatActivity() {
         val email:String = email_text.text.toString()
         val password:String = pass_text.text.toString()
 
-//        if(email.isEmpty())
-//        {
-//
-//        }else
+        if(email_text.text.toString().isEmpty()){
+            email_text.setError("Email is null")
+        }
+        if(pass_text.text.toString().isEmpty()){
+            pass_text.setError("Password is null")
+        }
 
-        Auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if(task.isSuccessful){
-                //to do
-                startActivity(Intent(this@MainActivity,HomeActivity::class.java))
+        if((email_text.text.toString().isNotEmpty()) && (pass_text.text.toString().isNotEmpty())) {
+            Auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                if(task.isSuccessful){
+                    //to do
+                    startActivity(Intent(this@MainActivity,HomeActivity::class.java))
+                }
+                else{
+                    MaterialAlertDialogBuilder(this)
+                        .setTitle("Alert")
+                        .setMessage("E-mail ro Password invalid. Please try again.")
+                        .setPositiveButton("OK"){dialog,which ->
+
+                        }
+                        .show()
+                }
             }
         }
     }

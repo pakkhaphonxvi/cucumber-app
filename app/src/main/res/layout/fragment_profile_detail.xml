@@ -3,24 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Home"
-    android:background="#000088">
+    tools:context=".ProfileDetail">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/displaytest"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/Recycle_userView"
-        tools:listitem="@layout/users_list">
-
-
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-
-
-
-
-
+        android:text="ProfileDetail" />
 
 </FrameLayout>
