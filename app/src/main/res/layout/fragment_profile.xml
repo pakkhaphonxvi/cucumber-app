@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile"
-    android:background="@color/white">
+    android:background="@drawable/brack2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,6 @@
             android:id="@+id/con"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@color/blue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -50,7 +49,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/con1"
             android:layout_width="match_parent"
@@ -69,6 +67,7 @@
                     style="@style/button_bg"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:text="Person" />
@@ -77,6 +76,7 @@
                     android:id="@+id/button_pet"
                     style="@style/button_bg"
                     android:layout_width="180dp"
+                    android:textColor="@color/white"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Pet" />
@@ -102,6 +102,21 @@
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                     android:gravity="center">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Info"
+                        style="@style/edittext_bg"
+                        android:layout_margin="10dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/black"
+                            android:id="@+id/edit_Info_user"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -155,29 +170,36 @@
                             android:id="@+id/edit_province"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <ImageView
-                        android:id="@+id/image_location"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp"
-                        android:src="@drawable/iu1"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/image_location1"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp"
-                        android:src="@drawable/iu1"/>
+                        <ImageView
+                            android:id="@+id/image_location"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/lisa1" />
 
-                    <ImageView
-                        android:id="@+id/image_location2"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp"
-                        android:src="@drawable/iu1"/>
+                        <ImageView
+                            android:id="@+id/image_location1"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/lisa2" />
+
+                        <ImageView
+                            android:id="@+id/image_location2"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/lisa3" />
+                    </LinearLayout>
 
                     <Button
                         android:id="@+id/button_save_person"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Save"
+                        android:textColor="@color/white"
                         style="@style/button_bg"
                         android:layout_margin="10dp"/>
 
@@ -190,6 +212,13 @@
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/layout_Person"
                     android:gravity="center">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/pet_profile"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/iu1"
+                        />
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/edittext_bg"
@@ -206,20 +235,6 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/pet_profile"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/iu1"
-                        />
-
-                    <Spinner
-                        android:id="@+id/spinner_gender_pet"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/spinner_bg"
-                        android:layout_margin="10dp" />
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -235,21 +250,35 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <Spinner
+                        android:id="@+id/spinner_gender_pet"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/spinner_bg"
+                        android:layout_margin="10dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
                     <ImageView
                         android:id="@+id/pet_image"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
                         android:src="@drawable/iu1"/>
                     <ImageView
                         android:id="@+id/pet_image1"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
                         android:src="@drawable/iu1"/>
                     <ImageView
                         android:id="@+id/pet_image2"
-                        android:layout_width="300dp"
-                        android:layout_height="300dp"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
                         android:src="@drawable/iu1"/>
+
+                </LinearLayout>
 
                     <Button
                         android:id="@+id/button_save_pet"
@@ -257,6 +286,7 @@
                         android:layout_height="wrap_content"
                         android:text="Save"
                         style="@style/button_bg"
+                        android:textColor="@color/white"
                         android:layout_margin="10dp"/>
 
                 </LinearLayout>
@@ -264,8 +294,6 @@
             </LinearLayout>
 
         </ScrollView>
-
-
 
     </RelativeLayout>
 

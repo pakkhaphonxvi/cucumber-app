@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cucumber"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".test"
-            android:exported="false" />
+
         <activity
             android:name=".Chat"
             android:exported="false" />
@@ -24,7 +22,11 @@
         <activity
             android:name=".register_choice"
             android:exported="false" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

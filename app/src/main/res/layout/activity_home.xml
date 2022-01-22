@@ -15,22 +15,21 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#FF0000"
+            android:background="#f1809c"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_baseline_menu_24">
 
             <Button
+                style="@style/button_chat"
                 android:id="@+id/button_chat"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="right"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/ic_baseline_chat_bubble_24">
+                android:layout_marginRight="10dp">
 
             </Button>
-
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -42,12 +41,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-<!--            <include layout="@layout/fragment_home"/>-->
+            <include layout="@layout/fragment_home"/>
 
         </FrameLayout>
 
     </RelativeLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
@@ -55,7 +53,5 @@
         app:menu="@menu/menu_bar"
         android:layout_gravity="start"
         android:id="@+id/menu_button"/>
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

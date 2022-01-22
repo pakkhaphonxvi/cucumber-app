@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -12,6 +13,7 @@ import com.google.firebase.database.*
 import com.pakkhaphon.cucumber.Chat
 import com.pakkhaphon.cucumber.R
 import com.pakkhaphon.cucumber.model.Friendsmodel
+import com.squareup.picasso.Picasso
 
 
 class FriendsAdapter(val context: Context?,val friendList:ArrayList<Friendsmodel>):
@@ -28,10 +30,13 @@ class FriendsAdapter(val context: Context?,val friendList:ArrayList<Friendsmodel
         Userdatabase.child(currentFriends.fid.toString()).addValueEventListener(object :ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 holder.friends_name_txt.text = snapshot.child("username").value.toString()
+                var link = snapshot.child("image").value.toString()
+                Picasso.get().load(link).noFade().into(holder.friends_image)
                 holder.itemView.setOnClickListener {
                     val i  = Intent(context,Chat::class.java)
                     i.putExtra("name",snapshot.child("username").value.toString())
                     i.putExtra("uid",snapshot.child("uid").value.toString())
+                    i.putExtra("image",snapshot.child("image").value.toString())
                     context!!.startActivity(i)
                 }
             }
@@ -47,5 +52,6 @@ class FriendsAdapter(val context: Context?,val friendList:ArrayList<Friendsmodel
 
     class FriendsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val friends_name_txt = itemView.findViewById<TextView>(R.id.friends_name_txt)
+        val friends_image = itemView.findViewById<ImageView>(R.id.friends_image)
     }
 }

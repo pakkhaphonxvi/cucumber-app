@@ -139,12 +139,14 @@ class Profile : Fragment() {
             val road = view.findViewById<TextInputEditText>(R.id.edit_road)
             val area = view.findViewById<TextInputEditText>(R.id.edit_area)
             val province = view.findViewById<TextInputEditText>(R.id.edit_province)
+            val info = view.findViewById<TextInputEditText>(R.id.edit_Info_user)
             val data = HashMap<String,Any>()
 
             data["address"] = address.text.toString()
             data["road"] = road.text.toString()
             data["province"] = province.text.toString()
             data["area"] = area.text.toString()
+            data["info"] = info.text.toString()
 
             userlocationDatabase.updateChildren(data)
 

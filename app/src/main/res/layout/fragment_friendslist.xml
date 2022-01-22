@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FriendsList"
-    android:background="#00aa00">
+    android:background="@color/pink">
 
 
     <androidx.recyclerview.widget.RecyclerView

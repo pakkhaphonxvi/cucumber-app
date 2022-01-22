@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/black_regis"
     tools:context=".register_choice">
 
     <LinearLayout
@@ -36,22 +37,28 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="290dp"
+            android:layout_marginTop="150dp"
             android:text="Username" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                style="@style/edittext_bg2">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:id="@+id/editTextUsername"
-                        android:drawableLeft="@drawable/carbon_user"
-                        android:inputType="textEmailAddress"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/carbon_user"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/edittext_page_signup"
+            android:textColorHint="@color/gray">
+
+        </EditText>
+
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -59,19 +66,22 @@
             android:layout_marginTop="20dp"
             android:text="E-mail" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_baseline_email"
+            android:background="@drawable/edittext_page_signup"
+            android:textColorHint="@color/gray">
 
-            style="@style/edittext_bg2">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:id="@+id/editTextEmail"
-                android:drawableLeft="@drawable/ic_baseline_email"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        </EditText>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -79,19 +89,23 @@
             android:layout_marginTop="20dp"
             android:text="Password" />
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_pass"
+            android:background="@drawable/edittext_page_signup"
+            android:textColorHint="@color/gray">
 
-                style="@style/edittext_bg2">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:id="@+id/editTextPassword"
-                        android:drawableLeft="@drawable/ic_pass"
-                        android:inputType="textEmailAddress"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        </EditText>
+
+
 
         <TextView
             android:id="@+id/textView2"
@@ -153,8 +167,9 @@
 
             android:id="@+id/buttonsingup"
             style="@style/button_bg"
-            android:layout_width="300dp"
+            android:layout_width="175dp"
             android:layout_height="55dp"
+            android:layout_marginLeft="75dp"
             android:text="sign up" />
 
     </LinearLayout>

@@ -12,6 +12,16 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/pink</item>
         <!-- Customize your theme here. -->
+        <item name="textAppearanceLargePopupMenu">@style/text</item>
+        <item name="textAppearanceSmallPopupMenu">@style/text1</item>
+    </style>
+
+    <style name="text" parent="">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="text1" parent="">
+        <item name="android:textColor">#000000</item>
     </style>
 
 
@@ -24,10 +34,16 @@
     </style>
 
     <style name="button_page_userlist" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/gray</item>
+        <item name="backgroundTint">@null</item>
         <item name="android:textColor">#000000</item>
+        <item name="android:background">@drawable/button_login_page_bg</item>
         <item name="shapeAppearance">@style/button_corner2</item>
         <item name="fontFamily">@font/advent_pro_medium</item>
+    </style>
+
+    <style name="button_chat" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@null</item>
+        <item name="android:background">@drawable/chat</item>
     </style>
 
     <style name="button_corner2" parent="">
@@ -47,12 +63,11 @@
     </style>
 
 
-
     <style name="edittext_bg" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">#000</item>
+        <item name="boxStrokeColor">#fff</item>
         <item name="boxStrokeWidth">2dp</item>
-        <item name="android:textColorHint">#000</item>
-        <item name="hintTextColor">#000000</item>
+        <item name="android:textColorHint">#fff</item>
+        <item name="hintTextColor">#fff</item>
 
     </style>
 
@@ -69,5 +84,17 @@
         <item name="android:textColorHint">@color/gray</item>
         <item name="hintTextColor">#000000</item>
     </style>
+    
+    <style name="spinner_bg" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">#ffffff</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="endIconDrawable">@drawable/ic_baseline_arrow_drop_down_24</item>
+        <item name="endIconTint">#ffffff</item>
+    </style>
+
+    <style name="inputText">
+        <item name="colorPrimary">@color/black</item>
+    </style>
+
 
 </resources>

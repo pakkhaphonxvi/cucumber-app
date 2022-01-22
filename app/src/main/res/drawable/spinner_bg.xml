@@ -7,8 +7,8 @@
 
             <item>
                 <shape>
-                    <solid android:color="@color/cardview_dark_background"/>
-                    <corners android:radius="5dp"/>
+                    <solid android:color="@color/cardview_light_background"/>
+                    <corners android:radius="18dp"/>
                     <padding android:left="10dp"/>
                 </shape>
             </item>

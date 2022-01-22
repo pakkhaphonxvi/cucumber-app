@@ -15,6 +15,7 @@ import com.pakkhaphon.cucumber.adapter.MessageAdapter
 import com.pakkhaphon.cucumber.model.Messagemodel
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import com.squareup.picasso.Picasso
 import kotlin.collections.ArrayList
 
 
@@ -27,6 +28,7 @@ class Chat : AppCompatActivity() {
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Messagemodel>
     private lateinit var MessageDatabase:DatabaseReference
+    private lateinit var friendimage:ImageView
 
     var receiveRoom:String = ""
     var senderRoom:String = ""
@@ -37,6 +39,7 @@ class Chat : AppCompatActivity() {
 
         val name = intent.getStringExtra("name")
         val receiveUid = intent.getStringExtra("uid")
+        val image = intent.getStringExtra("image")
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid
 
         MessageDatabase = FirebaseDatabase.getInstance().getReference()
@@ -46,6 +49,8 @@ class Chat : AppCompatActivity() {
 
         titlechathead = findViewById(R.id.title_chat_head)
         titlechathead.text = name
+
+        Picasso.get().load(image).noFade().into(friendimage)
 
         chatRecycleView = findViewById(R.id.chatRecycleView)
         messageBox = findViewById(R.id.messageBox)

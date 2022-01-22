@@ -22,4 +22,9 @@
 
     <string name="title_spinner">Sex</string>
 
+    <string-array name="test">
+        <item>Sender</item>
+        <item>Receiver</item>
+    </string-array>
+
 </resources>

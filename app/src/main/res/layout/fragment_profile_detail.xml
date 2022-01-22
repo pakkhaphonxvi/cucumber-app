@@ -3,13 +3,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ground"
     tools:context=".ProfileDetail">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/displaytest"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="ProfileDetail" />
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/iu1"
+            app:civ_border_width="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            app:civ_border_color="#ffffff">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:id="@+id/txt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/txt_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:layout_marginLeft="50dp"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/txt_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Info"
+            android:layout_marginLeft="50dp"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/image_location"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:src="@drawable/iu8" />
+
+                <ImageView
+                    android:id="@+id/image_location1"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/lisa2" />
+
+                <ImageView
+                    android:id="@+id/image_location2"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/lisa3" />
+
+            </LinearLayout>
+
+
+    </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>
