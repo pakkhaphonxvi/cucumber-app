@@ -7,118 +7,115 @@
     android:background="@drawable/black_regis"
     tools:context=".register_choice">
 
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity = "center"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-<!--        <EditText-->
-<!--            android:id="@+id/editTextTextPersonName"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:hint="Name" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/editTextTextPersonSurname"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:hint="Surname" />-->
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="150dp"
-            android:text="Username" />
-
-
-        <EditText
-            android:id="@+id/editTextUsername"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textSize="15sp"
-            android:drawableLeft="@drawable/carbon_user"
-            android:textColor="@color/black"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/edittext_page_signup"
-            android:textColorHint="@color/gray">
-
-        </EditText>
-
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:text="E-mail" />
-
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:inputType="textEmailAddress"
-            android:drawableLeft="@drawable/ic_baseline_email"
-            android:background="@drawable/edittext_page_signup"
-            android:textColorHint="@color/gray">
-
-        </EditText>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:text="Password" />
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:inputType="textEmailAddress"
-            android:drawableLeft="@drawable/ic_pass"
-            android:background="@drawable/edittext_page_signup"
-            android:textColorHint="@color/gray">
-
-        </EditText>
-
-
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Gender" />
+            android:orientation="vertical"
+            android:gravity = "center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="128dp"
+                android:text="Username" />
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/editTextUsername"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="15sp"
+                android:drawableLeft="@drawable/carbon_user"
+                android:textColor="@color/black"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edittext_page_signup"
+                android:textColorHint="@color/gray">
+
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="E-mail" />
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/ic_baseline_email"
+                android:background="@drawable/edittext_page_signup"
+                android:textColorHint="@color/gray">
+
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Password" />
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_pass"
+                android:background="@drawable/edittext_page_signup"
+                android:textColorHint="@color/gray">
+
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Confirm Password" />
+
+            <EditText
+                android:id="@+id/editTextConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_pass"
+                android:background="@drawable/edittext_page_signup"
+                android:textColorHint="@color/gray">
+
+            </EditText>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Gender" />
+
+            <RadioGroup
+                android:id="@+id/GenderGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/radioButtonMale"
@@ -134,18 +131,19 @@
                     android:layout_weight="1"
                     android:text="Female" />
 
-        </RadioGroup>
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Attention" />
+            </RadioGroup>
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Attention" />
 
+            <RadioGroup
+                android:id="@+id/AttentionGroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/radioButtonSender"
@@ -161,20 +159,16 @@
                     android:layout_weight="1"
                     android:text="Receiver" />
 
-        </RadioGroup>
+            </RadioGroup>
 
-        <Button
+            <Button
+                android:id="@+id/buttonsingup"
+                style="@style/button_bg"
+                android:layout_width="175dp"
+                android:layout_height="55dp"
+                android:layout_gravity="right"
+                android:text="sign up" />
 
-            android:id="@+id/buttonsingup"
-            style="@style/button_bg"
-            android:layout_width="175dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="75dp"
-            android:text="sign up" />
-
-    </LinearLayout>
-
-
-
+        </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
