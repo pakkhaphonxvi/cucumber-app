@@ -59,7 +59,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_Accept"
+                android:id="@+id/btn_Reject"
                 style="@style/button_page_userlist"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -68,7 +68,7 @@
                  />
 
             <Button
-                android:id="@+id/btn_Reject"
+                android:id="@+id/btn_Accept"
                 style="@style/button_page_userlist"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
