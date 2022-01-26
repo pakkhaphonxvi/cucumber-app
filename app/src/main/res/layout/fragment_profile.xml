@@ -27,10 +27,10 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/profile_image"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
                     android:src="@drawable/iu1"
-                    app:civ_border_width="2dp"
+                    app:civ_border_width="4dp"
                     app:civ_border_color="#ffffff">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
@@ -42,8 +42,7 @@
                     android:text="name"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    android:layout_marginTop="10dp"
-                    />
+                    android:layout_marginTop="10dp" />
 
             </LinearLayout>
 
@@ -113,7 +112,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="#ffffff"
                             android:id="@+id/edit_Info_user"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,7 +126,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="#ffffff"
                             android:id="@+id/edit_address"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -140,7 +139,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="#ffffff"
                             android:id="@+id/edit_road"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,7 +152,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="#ffffff"
                             android:id="@+id/edit_area"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,7 +165,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="#ffffff"
                             android:id="@+id/edit_province"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,20 +176,29 @@
 
                         <ImageView
                             android:id="@+id/image_location"
-                            android:layout_width="140dp"
+                            android:layout_width="match_parent"
                             android:layout_height="140dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:padding="4dp"
                             android:src="@drawable/lisa1" />
 
                         <ImageView
                             android:id="@+id/image_location1"
-                            android:layout_width="140dp"
+                            android:layout_width="match_parent"
                             android:layout_height="140dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:padding="4dp"
                             android:src="@drawable/lisa2" />
 
                         <ImageView
                             android:id="@+id/image_location2"
-                            android:layout_width="140dp"
+                            android:layout_width="match_parent"
                             android:layout_height="140dp"
+                            android:layout_weight="1"
+                            android:background="#ffffff"
+                            android:padding="4dp"
                             android:src="@drawable/lisa3" />
                     </LinearLayout>
 
@@ -215,22 +223,23 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/pet_profile"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
                         android:src="@drawable/iu1"
-                        />
+                        app:civ_border_width="4dp"
+                        app:civ_border_color="#ffffff" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/edittext_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:hint="Petname">
+                        android:hint="Pet Name" >
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="#ffffff"
                             android:id="@+id/edit_petname"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -238,14 +247,14 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Info"
+                        android:hint="Pet Info"
                         android:layout_margin="10dp"
                         style="@style/edittext_bg">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="#ffffff"
                             android:id="@+id/edit_info_pet"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -264,18 +273,27 @@
 
                     <ImageView
                         android:id="@+id/pet_image"
-                        android:layout_width="140dp"
+                        android:layout_width="match_parent"
                         android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:background="#ffffff"
+                        android:padding="4dp"
                         android:src="@drawable/iu1"/>
                     <ImageView
                         android:id="@+id/pet_image1"
-                        android:layout_width="140dp"
+                        android:layout_width="match_parent"
                         android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:background="#ffffff"
+                        android:padding="4dp"
                         android:src="@drawable/iu1"/>
                     <ImageView
                         android:id="@+id/pet_image2"
-                        android:layout_width="140dp"
+                        android:layout_width="match_parent"
                         android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:background="#ffffff"
+                        android:padding="4dp"
                         android:src="@drawable/iu1"/>
 
                 </LinearLayout>
