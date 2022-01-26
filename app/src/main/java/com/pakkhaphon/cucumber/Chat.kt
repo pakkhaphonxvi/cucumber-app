@@ -18,7 +18,6 @@ import android.widget.*
 import com.squareup.picasso.Picasso
 import kotlin.collections.ArrayList
 
-
 class Chat : AppCompatActivity() {
 
     private lateinit var chatRecycleView:RecyclerView
@@ -50,6 +49,7 @@ class Chat : AppCompatActivity() {
         titlechathead = findViewById(R.id.title_chat_head)
         titlechathead.text = name
 
+        friendimage = findViewById(R.id.friends_image)
         Picasso.get().load(image).noFade().into(friendimage)
 
         chatRecycleView = findViewById(R.id.chatRecycleView)
@@ -68,7 +68,6 @@ class Chat : AppCompatActivity() {
 
         chatRecycleView.layoutManager = layoutManager
         chatRecycleView.adapter = messageAdapter
-
 
         MessageDatabase.child("chat").child(senderRoom).child("message")
             .addValueEventListener(object :ValueEventListener {
@@ -94,10 +93,10 @@ class Chat : AppCompatActivity() {
                     }
 
                     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                        if(messageBox.text.toString() == ""){
+                        if(messageBox.text.toString() == "") {
                             sentButton.isEnabled = false
                         }
-                        else if(!messageBox.text.equals("")){
+                        else if(!messageBox.text.equals("")) {
                             sentButton.isEnabled = true
                         }
                     }
@@ -110,7 +109,7 @@ class Chat : AppCompatActivity() {
             }
         })
 
-        chatRecycleView.addOnLayoutChangeListener(object :View.OnLayoutChangeListener{
+        chatRecycleView.addOnLayoutChangeListener(object :View.OnLayoutChangeListener {
             override fun onLayoutChange(v: View?, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
                 if(bottom < oldBottom) {
                     chatRecycleView.postDelayed(object :Runnable {
@@ -137,7 +136,6 @@ class Chat : AppCompatActivity() {
             }
             messageBox.setText("")
         }
-
     }
 
     fun View.showKeyboard() {
@@ -150,5 +148,3 @@ class Chat : AppCompatActivity() {
         imm.hideSoftInputFromWindow(windowToken,0)
     }
 }
-
-
