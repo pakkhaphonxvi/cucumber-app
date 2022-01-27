@@ -23,29 +23,28 @@ import java.util.*
 import kotlin.collections.HashMap
 import kotlin.collections.HashSet
 
-
 class Profile : Fragment() {
 
-    private var selectphotouri: Uri? = null
-    private lateinit var uploadprofils:CircleImageView
-    private lateinit var userDatabase:DatabaseReference
-    private lateinit var uploadlocation:ImageView
-    private lateinit var uploadlocation1:ImageView
-    private lateinit var uploadlocation2:ImageView
-    private lateinit var userlocationDatabase:DatabaseReference
-    private lateinit var userpetDatabase:DatabaseReference
-    private lateinit var uploadpetprofile:CircleImageView
-    private lateinit var uploadpetimage:ImageView
-    private lateinit var uploadpetimage1:ImageView
-    private lateinit var uploadpetimage2:ImageView
+    private var selectPhotoUri: Uri? = null
+    private lateinit var uploadProfils: CircleImageView
+    private lateinit var userDatabase: DatabaseReference
+    private lateinit var uploadLocation1: ImageView
+    private lateinit var uploadLocation2: ImageView
+    private lateinit var uploadLocation3: ImageView
+    private lateinit var userLocationDatabase: DatabaseReference
+    private lateinit var userPetDatabase: DatabaseReference
+    private lateinit var uploadPetProfile: CircleImageView
+    private lateinit var uploadPetimage1: ImageView
+    private lateinit var uploadPetimage2: ImageView
+    private lateinit var uploadPetimage3: ImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         userDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid)
-        userlocationDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("Local")
-        userpetDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("Pet")
+        userLocationDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("Local")
+        userPetDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("Pet")
 
         //retrieved data from users db
         userDatabase.addValueEventListener(object :ValueEventListener {
@@ -63,17 +62,17 @@ class Profile : Fragment() {
         })
 
         //retrieved data from userlocal db
-        userlocationDatabase.addValueEventListener(object :ValueEventListener{
+        userLocationDatabase.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val link = snapshot.child("home_image").value.toString()
                 val link1 = snapshot.child("home_image1").value.toString()
                 val link2 = snapshot.child("home_image2").value.toString()
-                val showimagelocal = view.findViewById<ImageView>(R.id.image_location)
+                val link3 = snapshot.child("home_image3").value.toString()
                 val showimagelocal1 = view.findViewById<ImageView>(R.id.image_location1)
                 val showimagelocal2 = view.findViewById<ImageView>(R.id.image_location2)
-                Picasso.get().load(link).noFade().into(showimagelocal)
+                val showimagelocal3 = view.findViewById<ImageView>(R.id.image_location3)
                 Picasso.get().load(link1).noFade().into(showimagelocal1)
                 Picasso.get().load(link2).noFade().into(showimagelocal2)
+                Picasso.get().load(link3).noFade().into(showimagelocal3)
                 val txt_address = view.findViewById<TextInputEditText>(R.id.edit_address)
                 txt_address.setText(snapshot.child("address").value.toString())
                 val txt_road = view.findViewById<TextInputEditText>(R.id.edit_road)
@@ -90,8 +89,8 @@ class Profile : Fragment() {
         })
 
         //uploadimageperson
-        uploadprofils = view.findViewById(R.id.profile_image)
-        uploadprofils.setOnClickListener {
+        uploadProfils = view.findViewById(R.id.profile_image)
+        uploadProfils.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type ="image/*"
             startActivityForResult(intent,0)
@@ -113,20 +112,22 @@ class Profile : Fragment() {
         }
 
         //uploadlocation
-        uploadlocation = view.findViewById(R.id.image_location)
-        uploadlocation.setOnClickListener {
+        uploadLocation1 = view.findViewById(R.id.image_location1)
+        uploadLocation1.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, 1)
         }
-        uploadlocation1 = view.findViewById(R.id.image_location1)
-        uploadlocation1.setOnClickListener {
+
+        uploadLocation2 = view.findViewById(R.id.image_location2)
+        uploadLocation2.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent,2)
         }
-        uploadlocation2 = view.findViewById(R.id.image_location2)
-        uploadlocation2.setOnClickListener {
+
+        uploadLocation3 = view.findViewById(R.id.image_location3)
+        uploadLocation3.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent,3)
@@ -140,7 +141,7 @@ class Profile : Fragment() {
             val area = view.findViewById<TextInputEditText>(R.id.edit_area)
             val province = view.findViewById<TextInputEditText>(R.id.edit_province)
             val info = view.findViewById<TextInputEditText>(R.id.edit_Info_user)
-            val data = HashMap<String,Any>()
+            val data = HashMap<String, Any>()
 
             data["address"] = address.text.toString()
             data["road"] = road.text.toString()
@@ -148,51 +149,50 @@ class Profile : Fragment() {
             data["area"] = area.text.toString()
             data["info"] = info.text.toString()
 
-            userlocationDatabase.updateChildren(data)
-
+            userLocationDatabase.updateChildren(data)
         }
 
         //uploadpet
-        uploadpetprofile = view.findViewById(R.id.pet_profile)
-        uploadpetprofile.setOnClickListener {
+        uploadPetProfile = view.findViewById(R.id.pet_profile)
+        uploadPetProfile.setOnClickListener {
             val i = Intent(Intent.ACTION_PICK)
             i.type = "image/*"
             startActivityForResult(i,4)
         }
-        uploadpetimage = view.findViewById(R.id.pet_image)
-        uploadpetimage.setOnClickListener {
+        uploadPetimage1 = view.findViewById(R.id.pet_image1)
+        uploadPetimage1.setOnClickListener {
             val i = Intent(Intent.ACTION_PICK)
             i.type = "image/*"
             startActivityForResult(i,5)
         }
-        uploadpetimage1 = view.findViewById(R.id.pet_image1)
-        uploadpetimage1.setOnClickListener {
+        uploadPetimage2 = view.findViewById(R.id.pet_image2)
+        uploadPetimage2.setOnClickListener {
             val i = Intent(Intent.ACTION_PICK)
             i.type = "image/*"
             startActivityForResult(i,6)
         }
-        uploadpetimage2 = view.findViewById(R.id.pet_image2)
-        uploadpetimage2.setOnClickListener {
+        uploadPetimage3 = view.findViewById(R.id.pet_image2)
+        uploadPetimage3.setOnClickListener {
             val i = Intent(Intent.ACTION_PICK)
             i.type = "image/*"
             startActivityForResult(i,7)
         }
 
         val pet_sex_target = arrayListOf<String>("Sex","Male","Female")
-        val spinnerAdapterSex = context?.let { ArrayAdapter(it,android.R.layout.simple_spinner_item,pet_sex_target) }
+        val spinnerAdapterSex = context?.let {
+            ArrayAdapter(it, android.R.layout.simple_spinner_item, pet_sex_target)
+        }
         val spinner_sex = view.findViewById<Spinner>(R.id.spinner_gender_pet)
         spinner_sex.adapter = spinnerAdapterSex
         var pet_sex = ""
 
-        spinner_sex.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
+        spinner_sex.onItemSelectedListener = object:AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                if(pet_sex_target[position] == "Male")
-                {
+                if(pet_sex_target[position] == "Male") {
 //                   spinnerAdapterSex?.remove("Sex")
                    pet_sex = "Male"
                 }
-                else if(pet_sex_target[position] == "Female")
-                {
+                else if(pet_sex_target[position] == "Female") {
 //                    spinnerAdapterSex?.remove("Sex")
                     pet_sex = "Female"
                 }
@@ -206,44 +206,42 @@ class Profile : Fragment() {
         val button_save_pet = view.findViewById<Button>(R.id.button_save_pet)
         button_save_pet.setOnClickListener {
 
-            val petname = view.findViewById<TextInputEditText>(R.id.edit_petname)
-            val petinfo = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
-            val data = HashMap<String,Any>()
+            val pet_name = view.findViewById<TextInputEditText>(R.id.edit_petname)
+            val pet_info = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
+            val data = HashMap<String, Any>()
 
-            data["petname"] = petname.text.toString()
-            data["sex"] = pet_sex
-            data["info"] = petinfo.text.toString()
+            data["pet_name"] = pet_name.text.toString()
+            data["pet_sex"] = pet_sex
+            data["pet_info"] = pet_info.text.toString()
 
-            userpetDatabase.updateChildren(data)
+            userPetDatabase.updateChildren(data)
 
         }
 
         //retrieved data from userpet db
-        userpetDatabase.addValueEventListener(object :ValueEventListener {
+        userPetDatabase.addValueEventListener(object :ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val link = snapshot.child("pet_profile").value.toString()
-                val link1 = snapshot.child("pet_image").value.toString()
-                val link2 = snapshot.child("pet_image1").value.toString()
-                val link3 = snapshot.child("pet_image2").value.toString()
+                val link1 = snapshot.child("pet_image1").value.toString()
+                val link2 = snapshot.child("pet_image2").value.toString()
+                val link3 = snapshot.child("pet_image3").value.toString()
                 val showimagepet = view.findViewById<CircleImageView>(R.id.pet_profile)
-                val showimagepet1 = view.findViewById<ImageView>(R.id.pet_image)
-                val showimagepet2 = view.findViewById<ImageView>(R.id.pet_image1)
-                val showimagepet3 = view.findViewById<ImageView>(R.id.pet_image2)
+                val showimagepet1 = view.findViewById<ImageView>(R.id.pet_image1)
+                val showimagepet2 = view.findViewById<ImageView>(R.id.pet_image2)
+                val showimagepet3 = view.findViewById<ImageView>(R.id.pet_image3)
                 Picasso.get().load(link).noFade().into(showimagepet)
                 Picasso.get().load(link1).noFade().into(showimagepet1)
                 Picasso.get().load(link2).noFade().into(showimagepet2)
                 Picasso.get().load(link3).noFade().into(showimagepet3)
                 val txt_petname = view.findViewById<TextInputEditText>(R.id.edit_petname)
-                txt_petname.setText(snapshot.child("petname").value.toString())
+                txt_petname.setText(snapshot.child("pet_name").value.toString())
                 val txt_info = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
-                txt_info.setText(snapshot.child("info").value.toString())
-                val txt_sex = snapshot.child("sex").value.toString()
-                if(txt_sex == "Male")
-                {
+                txt_info.setText(snapshot.child("pet_info").value.toString())
+                val txt_sex = snapshot.child("pet_sex").value.toString()
+                if(txt_sex == "Male") {
                     spinner_sex.setSelection(spinnerAdapterSex!!.getPosition("Male"))
                 }
-                else if(txt_sex == "Female")
-                {
+                else if(txt_sex == "Female") {
                     spinner_sex.setSelection(spinnerAdapterSex!!.getPosition("Female"))
                 }
             }
@@ -257,78 +255,75 @@ class Profile : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null)
-        {
-            selectphotouri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,selectphotouri)
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+            selectPhotoUri = data.data
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, selectPhotoUri)
             val bitmaDrawable = BitmapDrawable(bitmap)
-            uploadprofils.setImageIcon(null)
-            uploadprofils.setBackgroundDrawable(bitmaDrawable)
-
+            uploadProfils.setImageIcon(null)
+            uploadProfils.setBackgroundDrawable(bitmaDrawable)
             uploadimageperson()
-
         }
-        if(requestCode == 1 && resultCode == Activity.RESULT_OK && data != null)
-        {
+
+        if(requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            uploadlocation.setImageIcon(null)
-            uploadlocation.setBackgroundDrawable(bitmapDrawable)
+            uploadLocation1.setImageIcon(null)
+            uploadLocation1.setBackgroundDrawable(bitmapDrawable)
             uploadimagelocation(uri)
         }
-        if(requestCode == 2 && resultCode == Activity.RESULT_OK && data != null)
-        {
+
+        if(requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            uploadlocation1.setImageIcon(null)
-            uploadlocation1.setBackgroundDrawable(bitmapDrawable)
+            uploadLocation2.setImageIcon(null)
+            uploadLocation2.setBackgroundDrawable(bitmapDrawable)
             uploadimagelocation1(uri)
         }
-        if(requestCode == 3 && resultCode == Activity.RESULT_OK && data != null)
-        {
+
+        if(requestCode == 3 && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            uploadlocation2.setImageIcon(null)
-            uploadlocation2.setBackgroundDrawable(bitmapDrawable)
+            uploadLocation3.setImageIcon(null)
+            uploadLocation3.setBackgroundDrawable(bitmapDrawable)
             uploadimagelocation2(uri)
         }
-        if(requestCode == 4 && resultCode == Activity.RESULT_OK && data != null)
-        {
+
+        if(requestCode == 4 && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            uploadpetprofile.setImageIcon(null)
-            uploadpetprofile.setBackgroundDrawable(bitmapDrawable)
+            uploadPetProfile.setImageIcon(null)
+            uploadPetProfile.setBackgroundDrawable(bitmapDrawable)
             uploadimagepet(uri)
         }
-        if(requestCode == 5 && resultCode == Activity.RESULT_OK && data != null)
-        {
+
+        if(requestCode == 5 && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            uploadpetimage.setImageIcon(null)
-            uploadpetimage.setBackgroundDrawable(bitmapDrawable)
+            uploadPetimage1.setImageIcon(null)
+            uploadPetimage1.setBackgroundDrawable(bitmapDrawable)
             uploadimagepet1(uri)
         }
-        if(requestCode == 6 && resultCode == Activity.RESULT_OK && data != null)
-        {
+
+        if(requestCode == 6 && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            uploadpetimage1.setImageIcon(null)
-            uploadpetimage1.setBackgroundDrawable(bitmapDrawable)
+            uploadPetimage2.setImageIcon(null)
+            uploadPetimage2.setBackgroundDrawable(bitmapDrawable)
             uploadimagepet2(uri)
         }
-        if(requestCode == 7 && resultCode == Activity.RESULT_OK && data != null)
-        {
+
+        if(requestCode == 7 && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
-            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver,uri)
+            val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
-            uploadpetimage2.setImageIcon(null)
-            uploadpetimage2.setBackgroundDrawable(bitmapDrawable)
+            uploadPetimage3.setImageIcon(null)
+            uploadPetimage3.setBackgroundDrawable(bitmapDrawable)
             uploadimagepet3(uri)
         }
     }
@@ -345,7 +340,7 @@ class Profile : Fragment() {
             ref.downloadUrl.addOnSuccessListener {
                 val userpet = HashMap<String,Any>()
                 userpet["pet_profile"] = it.toString()
-                userpetDatabase.updateChildren(userpet)
+                userPetDatabase.updateChildren(userpet)
             }
         }
     }
@@ -361,8 +356,8 @@ class Profile : Fragment() {
         ref.putFile(uri).addOnSuccessListener {
             ref.downloadUrl.addOnSuccessListener {
                 val userpet = HashMap<String,Any>()
-                userpet["pet_image"] = it.toString()
-                userpetDatabase.updateChildren(userpet)
+                userpet["pet_image1"] = it.toString()
+                userPetDatabase.updateChildren(userpet)
             }
         }
     }
@@ -378,8 +373,8 @@ class Profile : Fragment() {
         ref.putFile(uri).addOnSuccessListener {
             ref.downloadUrl.addOnSuccessListener {
                 val userpet = HashMap<String,Any>()
-                userpet["pet_image1"] = it.toString()
-                userpetDatabase.updateChildren(userpet)
+                userpet["pet_image2"] = it.toString()
+                userPetDatabase.updateChildren(userpet)
             }
         }
     }
@@ -395,8 +390,8 @@ class Profile : Fragment() {
         ref.putFile(uri).addOnSuccessListener {
             ref.downloadUrl.addOnSuccessListener {
                 val userpet = HashMap<String,Any>()
-                userpet["pet_image2"] = it.toString()
-                userpetDatabase.updateChildren(userpet)
+                userpet["pet_image3"] = it.toString()
+                userPetDatabase.updateChildren(userpet)
             }
         }
     }
@@ -412,8 +407,8 @@ class Profile : Fragment() {
         ref.putFile(uri).addOnSuccessListener {
             ref.downloadUrl.addOnSuccessListener {
                 val userlocation = HashMap<String,Any>()
-                userlocation["home_image"] = it.toString()
-                userlocationDatabase.updateChildren(userlocation)
+                userlocation["home_image1"] = it.toString()
+                userLocationDatabase.updateChildren(userlocation)
             }
         }
     }
@@ -429,8 +424,8 @@ class Profile : Fragment() {
         ref.putFile(uri).addOnSuccessListener {
             ref.downloadUrl.addOnSuccessListener {
                 val userlocation = HashMap<String,Any>()
-                userlocation["home_image1"] = it.toString()
-                userlocationDatabase.updateChildren(userlocation)
+                userlocation["home_image2"] = it.toString()
+                userLocationDatabase.updateChildren(userlocation)
             }
         }
     }
@@ -445,21 +440,21 @@ class Profile : Fragment() {
         ref.putFile(uri).addOnSuccessListener {
             ref.downloadUrl.addOnSuccessListener {
                 val userlocation = HashMap<String,Any>()
-                userlocation["home_image2"] = it.toString()
-                userlocationDatabase.updateChildren(userlocation)
+                userlocation["home_image3"] = it.toString()
+                userLocationDatabase.updateChildren(userlocation)
             }
         }
     }
 
     private fun uploadimageperson() {
-        if(selectphotouri == null) {
+        if(selectPhotoUri == null) {
             return
         }
 
         val filename = UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("/image/$filename")
 
-        ref.putFile(selectphotouri!!).addOnSuccessListener {
+        ref.putFile(selectPhotoUri!!).addOnSuccessListener {
             ref.downloadUrl.addOnSuccessListener {
                 val user = HashMap<String,Any>()
                 user["image"] = it.toString()

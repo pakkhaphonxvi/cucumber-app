@@ -175,7 +175,7 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/image_location"
+                            android:id="@+id/image_location1"
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
@@ -184,7 +184,7 @@
                             android:src="@drawable/lisa1" />
 
                         <ImageView
-                            android:id="@+id/image_location1"
+                            android:id="@+id/image_location2"
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
@@ -193,7 +193,7 @@
                             android:src="@drawable/lisa2" />
 
                         <ImageView
-                            android:id="@+id/image_location2"
+                            android:id="@+id/image_location3"
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
@@ -272,14 +272,6 @@
                         android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/pet_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:layout_weight="1"
-                        android:background="#00ffffff"
-                        android:padding="4dp"
-                        android:src="@drawable/iu1"/>
-                    <ImageView
                         android:id="@+id/pet_image1"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
@@ -289,6 +281,14 @@
                         android:src="@drawable/iu1"/>
                     <ImageView
                         android:id="@+id/pet_image2"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:padding="4dp"
+                        android:src="@drawable/iu1"/>
+                    <ImageView
+                        android:id="@+id/pet_image3"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:layout_weight="1"
