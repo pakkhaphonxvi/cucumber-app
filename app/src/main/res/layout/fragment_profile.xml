@@ -179,7 +179,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
-                            android:background="#ffffff"
+                            android:background="#00ffffff"
                             android:padding="4dp"
                             android:src="@drawable/lisa1" />
 
@@ -188,7 +188,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
-                            android:background="#ffffff"
+                            android:background="#00ffffff"
                             android:padding="4dp"
                             android:src="@drawable/lisa2" />
 
@@ -197,7 +197,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
-                            android:background="#ffffff"
+                            android:background="#00ffffff"
                             android:padding="4dp"
                             android:src="@drawable/lisa3" />
                     </LinearLayout>
@@ -223,8 +223,8 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/pet_profile"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
                         android:src="@drawable/iu1"
                         app:civ_border_width="4dp"
                         app:civ_border_color="#ffffff" />
@@ -276,7 +276,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:layout_weight="1"
-                        android:background="#ffffff"
+                        android:background="#00ffffff"
                         android:padding="4dp"
                         android:src="@drawable/iu1"/>
                     <ImageView
@@ -284,7 +284,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:layout_weight="1"
-                        android:background="#ffffff"
+                        android:background="#00ffffff"
                         android:padding="4dp"
                         android:src="@drawable/iu1"/>
                     <ImageView
@@ -292,7 +292,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:layout_weight="1"
-                        android:background="#ffffff"
+                        android:background="#00ffffff"
                         android:padding="4dp"
                         android:src="@drawable/iu1"/>
 
