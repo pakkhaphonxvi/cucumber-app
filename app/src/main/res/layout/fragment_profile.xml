@@ -259,12 +259,38 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <Spinner
-                        android:id="@+id/spinner_gender_pet"
+                    <TextView
+                        android:id="@+id/txt"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@drawable/spinner_bg"
-                        android:layout_margin="10dp" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="24dp"
+                        android:text="Sex"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                    <RadioGroup
+                        android:id="@+id/GenderGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioSexM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Male" />
+
+                        <RadioButton
+                            android:id="@+id/radioSexF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Female" />
+
+                    </RadioGroup>
 
                     <LinearLayout
                         android:layout_width="match_parent"

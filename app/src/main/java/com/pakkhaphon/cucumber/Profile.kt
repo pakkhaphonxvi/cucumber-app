@@ -41,6 +41,8 @@ class Profile : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val inputMale = view.findViewById<RadioButton>(R.id.radioSexM)
+        val inputFemale = view.findViewById<RadioButton>(R.id.radioSexF)
 
         userDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid)
         userLocationDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("Local")
@@ -178,37 +180,20 @@ class Profile : Fragment() {
             startActivityForResult(i,7)
         }
 
-        val pet_sex_target = arrayListOf<String>("Sex","Male","Female")
-        val spinnerAdapterSex = context?.let {
-            ArrayAdapter(it, android.R.layout.simple_spinner_item, pet_sex_target)
-        }
-        val spinner_sex = view.findViewById<Spinner>(R.id.spinner_gender_pet)
-        spinner_sex.adapter = spinnerAdapterSex
         var pet_sex = ""
-
-        spinner_sex.onItemSelectedListener = object:AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                if(pet_sex_target[position] == "Male") {
-//                   spinnerAdapterSex?.remove("Sex")
-                   pet_sex = "Male"
-                }
-                else if(pet_sex_target[position] == "Female") {
-//                    spinnerAdapterSex?.remove("Sex")
-                    pet_sex = "Female"
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                // onNothingSelected
-            }
-        }
-
         val button_save_pet = view.findViewById<Button>(R.id.button_save_pet)
         button_save_pet.setOnClickListener {
 
             val pet_name = view.findViewById<TextInputEditText>(R.id.edit_petname)
             val pet_info = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
             val data = HashMap<String, Any>()
+
+            if(inputMale.isChecked) {
+                pet_sex = inputMale.text.toString()
+            }
+            else if(inputFemale.isChecked) {
+                pet_sex = inputFemale.text.toString()
+            }
 
             data["pet_name"] = pet_name.text.toString()
             data["pet_sex"] = pet_sex
@@ -237,12 +222,11 @@ class Profile : Fragment() {
                 txt_petname.setText(snapshot.child("pet_name").value.toString())
                 val txt_info = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
                 txt_info.setText(snapshot.child("pet_info").value.toString())
-                val txt_sex = snapshot.child("pet_sex").value.toString()
-                if(txt_sex == "Male") {
-                    spinner_sex.setSelection(spinnerAdapterSex!!.getPosition("Male"))
-                }
-                else if(txt_sex == "Female") {
-                    spinner_sex.setSelection(spinnerAdapterSex!!.getPosition("Female"))
+                val sex = snapshot.child("pet_sex").value.toString()
+                if (sex == "Male") {
+                    inputMale.setChecked(true)
+                } else if (sex == "Female") {
+                    inputFemale.setChecked(true)
                 }
             }
 
@@ -458,7 +442,6 @@ class Profile : Fragment() {
             ref.downloadUrl.addOnSuccessListener {
                 val user = HashMap<String,Any>()
                 user["image"] = it.toString()
-
                 userDatabase.updateChildren(user)
             }
         }
