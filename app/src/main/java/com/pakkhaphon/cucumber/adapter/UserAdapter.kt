@@ -32,6 +32,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
     var receiveid:Long = 0
     var receiveid1:Long = 0
     var sendid1:Long = 0
+    var rejectid:Long = 0
     lateinit var x: HomeActivity
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
@@ -162,7 +163,6 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
         holder.btnReject.setOnClickListener {
             useList.removeAt(position)
             notifyDataSetChanged()
-            var rejectid:Long = 0
             val rejectdatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid).child("RejectTo")
             rejectdatabase.addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
