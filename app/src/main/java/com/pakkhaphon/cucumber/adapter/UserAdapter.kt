@@ -42,12 +42,11 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
 
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
         val currentuser = useList[position]
-        holder.users_name_txt.text = currentuser.username
         if(currentuser.attention == "Sender") {
             val petdata = FirebaseDatabase.getInstance().reference.child("Users").child(currentuser.uid.toString()).child("Pet")
             petdata.addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    Log.d("pet", "onDataChange: ${snapshot.child("petname").value.toString()}")
+                    holder.users_name_txt.text = snapshot.child("pet_name").value.toString()
                     var link = snapshot.child("pet_profile").value.toString()
                     Picasso.get().load(link).noFade().into(holder.imageUser)
                 }
@@ -58,6 +57,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
             })
         }
         else if(currentuser.attention == "Receiver") {
+            holder.users_name_txt.text = currentuser.username
             Picasso.get().load(currentuser.image).noFade().into(holder.imageUser)
         }
 
