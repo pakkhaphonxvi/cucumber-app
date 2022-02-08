@@ -16,11 +16,9 @@ import com.pakkhaphon.cucumber.R
 import com.pakkhaphon.cucumber.model.Friendsmodel
 import com.squareup.picasso.Picasso
 
-
 class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmodel>):
     RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
     private var Userdatabase = FirebaseDatabase.getInstance().reference.child("Users")
-    private var mAuth = FirebaseAuth.getInstance().currentUser!!.uid
     private var friendAttention:String = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendsViewHolder {
@@ -54,17 +52,16 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
                     })
                 }
                 else if(friendAttention.toString() == "Sender") {
-                    val petdata = FirebaseDatabase.getInstance().reference.child("Users").child(currentFriends.fid.toString()).child("Pet")
-                    petdata.addValueEventListener(object: ValueEventListener{
+                    Userdatabase.child(currentFriends.fid.toString()).addValueEventListener(object: ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            holder.friends_name_txt.text =  snapshot.child("pet_name").value.toString()
-                            val link = snapshot.child("pet_profile").value.toString()
+                            holder.friends_name_txt.text =  snapshot.child("Pet").child("pet_name").value.toString()
+                            val link = snapshot.child("Pet").child("pet_profile").value.toString()
                             Picasso.get().load(link).noFade().into(holder.friends_image)
                             holder.itemView.setOnClickListener {
                                 val i = Intent(context, Chat::class.java)
-                                i.putExtra("name", snapshot.child("username").value.toString())
+                                i.putExtra("name", snapshot.child("Pet").child("pet_name").value.toString())
                                 i.putExtra("uid", snapshot.child("uid").value.toString())
-                                i.putExtra("image", snapshot.child("image").value.toString())
+                                i.putExtra("image", snapshot.child("Pet").child("pet_profile").value.toString())
                                 context!!.startActivity(i)
                             }
                         }
