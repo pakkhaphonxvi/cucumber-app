@@ -75,14 +75,16 @@
                     android:id="@+id/image_location1"
                     android:layout_width="350dp"
                     android:layout_height="350dp"
-                    android:src="@drawable/iu8" />
+                    android:src="@drawable/iu8"
+                    android:scaleType="centerCrop" />
 
                 <ImageView
                     android:id="@+id/image_location2"
                     android:layout_width="350dp"
                     android:layout_height="350dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/lisa2" />
+                    android:src="@drawable/lisa2"
+                    android:scaleType="centerCrop" />
 
                 <ImageView
                     android:id="@+id/image_location3"
@@ -90,7 +92,8 @@
                     android:layout_height="350dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/lisa3" />
+                    android:src="@drawable/lisa3"
+                    android:scaleType="centerCrop" />
 
             </LinearLayout>
 
