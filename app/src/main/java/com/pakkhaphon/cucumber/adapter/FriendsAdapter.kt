@@ -2,6 +2,7 @@ package com.pakkhaphon.cucumber.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.renderscript.Sampler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,9 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
     RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
     private var Userdatabase = FirebaseDatabase.getInstance().reference.child("Users")
     private var friendAttention:String = ""
+    private var fid:Long = 0
+    private var id:Long = -1
+    private var rejectid:Long = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendsViewHolder {
         val view:View = LayoutInflater.from(context).inflate(R.layout.friends_list, parent,false)
@@ -48,6 +52,41 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
                         }
                         override fun onCancelled(error: DatabaseError) {
                             //On Cancelled
+                        }
+                    })
+                    Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").addValueEventListener(object: ValueEventListener{
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            var i: Long = 0
+                            fid = snapshot.childrenCount
+                            while(i<=fid) {
+                                if(snapshot.child(i.toString()).child("fid").value == currentFriends.fid.toString()) {
+                                    id = i
+                                    Log.d("id", "onDataChange: $id")
+                                }
+                                i++
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            // sssss
+                        }
+                    })
+                    Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("RejectTo").addValueEventListener(object: ValueEventListener{
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            rejectid = snapshot.childrenCount
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            // sssss
+                        }
+                    })
+                    holder.itemView.setOnLongClickListener(object: View.OnLongClickListener{
+                        override fun onLongClick(v: View?): Boolean {
+                            Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").child(id.toString()).removeValue()
+                            val data = HashMap<String, Any>()
+                            data["uid"] = currentFriends.fid.toString()
+                            Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("RejectTo").child(rejectid.toString()).setValue(data)
+                            return true
                         }
                     })
                 }
