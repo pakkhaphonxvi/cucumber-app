@@ -22,7 +22,9 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
     private var Userdatabase = FirebaseDatabase.getInstance().reference.child("Users")
     private var friendAttention:String = ""
     private var fid:Long = 0
+    private var fid2:Long = 0
     private var id:Long = -1
+    private var id2:Long = -1
     private var rejectid:Long = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendsViewHolder {
@@ -71,6 +73,23 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
                             // sssss
                         }
                     })
+                    Userdatabase.child(currentFriends.fid.toString()).child("ConnectedTo").addValueEventListener(object: ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            var i: Long = 0
+                            fid2 = snapshot.childrenCount
+                            while(i<=fid2) {
+                                if(snapshot.child(i.toString()).child("fid").value == FirebaseAuth.getInstance().currentUser!!.uid) {
+                                    id2 = i
+                                    Log.d("id", "onDataChange: $id")
+                                }
+                                i++
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            // sssss
+                        }
+                    })
                     Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("RejectTo").addValueEventListener(object: ValueEventListener{
                         override fun onDataChange(snapshot: DataSnapshot) {
                             rejectid = snapshot.childrenCount
@@ -83,6 +102,7 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
                     holder.itemView.setOnLongClickListener(object: View.OnLongClickListener{
                         override fun onLongClick(v: View?): Boolean {
                             Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").child(id.toString()).removeValue()
+                            Userdatabase.child(currentFriends.fid.toString()).child("ConnectedTo").child(id2.toString()).removeValue()
                             val data = HashMap<String, Any>()
                             data["uid"] = currentFriends.fid.toString()
                             Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("RejectTo").child(rejectid.toString()).setValue(data)
