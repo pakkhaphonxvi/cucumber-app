@@ -5,12 +5,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.service.autofill.UserData
 import android.view.MenuItem
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -22,7 +18,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.squareup.picasso.Picasso
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -36,14 +31,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         if(savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_space,Home()).commitAllowingStateLoss()
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_space, Home()).commitAllowingStateLoss()
         }
 
         val drawerlayout = findViewById<DrawerLayout>(R.id.drawerlayout)
         firebaseAuth = FirebaseAuth.getInstance()
         checkuser()
 
-        toggle = ActionBarDrawerToggle(this, drawerlayout,findViewById(R.id.toolbar),R.string.open,R.string.close)
+        toggle = ActionBarDrawerToggle(this, drawerlayout, findViewById(R.id.toolbar), R.string.open, R.string.close)
         toggle.isDrawerIndicatorEnabled = true
         drawerlayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -68,7 +63,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
-        val googleSignInClient = GoogleSignIn.getClient(this,googleSignInOptions)
+        val googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
         when(item.itemId) {
             R.id.nav_home -> {
@@ -119,4 +114,3 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         dialog.show()
     }
 }
-

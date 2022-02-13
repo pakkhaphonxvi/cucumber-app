@@ -52,7 +52,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
         }
@@ -79,7 +79,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
 
@@ -96,7 +96,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
 
@@ -106,7 +106,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
 
@@ -118,7 +118,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
 
@@ -128,7 +128,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
 
@@ -155,7 +155,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
         }
@@ -170,7 +170,7 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
+                    // onCancel
                 }
             })
             val data = HashMap<String,Any>()
@@ -190,9 +190,4 @@ class UserAdapter (val context: Context?, val useList:ArrayList<Usersmodel>, val
         val btnReject = itemView.findViewById<Button>(R.id.btn_Reject)
     }
 
-//    private fun showDialog() {
-//        val dialog = Dialog(x.)
-//        dialog.setContentView(R.layout.layout_dialog)
-//        dialog.show()
-//    }
 }

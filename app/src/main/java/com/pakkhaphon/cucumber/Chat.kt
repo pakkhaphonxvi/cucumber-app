@@ -1,11 +1,9 @@
 package com.pakkhaphon.cucumber
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.KeyEvent
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.pakkhaphon.cucumber.adapter.MessageAdapter
 import com.pakkhaphon.cucumber.model.Messagemodel
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.squareup.picasso.Picasso
 import kotlin.collections.ArrayList
@@ -124,11 +121,6 @@ class Chat : AppCompatActivity() {
         sentButton.setOnClickListener {
             val message = messageBox.text.toString()
             val messageObject = Messagemodel(message,senderUid)
-//            val data = HashMap<String,Any>()
-//            data["message"] = messageBox.text.toString()
-//            data["senderId"] = senderUid!!
-
-
             MessageDatabase.child("chat").child(senderRoom).child("message").push().setValue(messageObject).addOnCompleteListener {
                 if(it.isSuccessful) {
                     MessageDatabase.child("chat").child(receiveRoom).child("message").push().setValue(messageObject)
@@ -136,15 +128,5 @@ class Chat : AppCompatActivity() {
             }
             messageBox.setText("")
         }
-    }
-
-    fun View.showKeyboard() {
-        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0)
-    }
-
-    fun View.hideKeyboard() {
-        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(windowToken,0)
     }
 }

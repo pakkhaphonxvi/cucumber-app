@@ -2,7 +2,6 @@ package com.pakkhaphon.cucumber.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.renderscript.Sampler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,8 +16,7 @@ import com.pakkhaphon.cucumber.R
 import com.pakkhaphon.cucumber.model.Friendsmodel
 import com.squareup.picasso.Picasso
 
-class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmodel>):
-    RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
+class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmodel>): RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
     private var Userdatabase = FirebaseDatabase.getInstance().reference.child("Users")
     private var friendAttention:String = ""
     private var fid:Long = 0
@@ -37,9 +35,8 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
         FirebaseDatabase.getInstance().reference.child("Users").child(currentFriends.fid.toString()).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 friendAttention = snapshot.child("attention").value.toString()
-                Log.d("friend", "attn1 = $friendAttention")
                 if(friendAttention == "Receiver") {
-                    Userdatabase.child(currentFriends.fid.toString()).addValueEventListener(object : ValueEventListener {
+                    Userdatabase.child(currentFriends.fid.toString()).addValueEventListener(object: ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             holder.friends_name_txt.text = snapshot.child("username").value.toString()
                             val link = snapshot.child("image").value.toString()
@@ -56,7 +53,7 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
                             //On Cancelled
                         }
                     })
-                    Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").addValueEventListener(object: ValueEventListener{
+                    Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").addValueEventListener(object: ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             var i: Long = 0
                             fid = snapshot.childrenCount
@@ -80,26 +77,25 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
                             while(i<=fid2) {
                                 if(snapshot.child(i.toString()).child("fid").value == FirebaseAuth.getInstance().currentUser!!.uid) {
                                     id2 = i
-                                    Log.d("id", "onDataChange: $id")
                                 }
                                 i++
                             }
                         }
 
                         override fun onCancelled(error: DatabaseError) {
-                            // sssss
+                            // onCancel
                         }
                     })
-                    Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("RejectTo").addValueEventListener(object: ValueEventListener{
+                    Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("RejectTo").addValueEventListener(object: ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             rejectid = snapshot.childrenCount
                         }
 
                         override fun onCancelled(error: DatabaseError) {
-                            // sssss
+                            // onCancel
                         }
                     })
-                    holder.itemView.setOnLongClickListener(object: View.OnLongClickListener{
+                    holder.itemView.setOnLongClickListener(object: View.OnLongClickListener {
                         override fun onLongClick(v: View?): Boolean {
                             Userdatabase.child(FirebaseAuth.getInstance().currentUser!!.uid).child("ConnectedTo").child(id.toString()).removeValue()
                             Userdatabase.child(currentFriends.fid.toString()).child("ConnectedTo").child(id2.toString()).removeValue()
@@ -110,10 +106,10 @@ class FriendsAdapter(val context: Context?, val friendList:ArrayList<Friendsmode
                         }
                     })
                 }
-                else if(friendAttention.toString() == "Sender") {
+                else if(friendAttention == "Sender") {
                     Userdatabase.child(currentFriends.fid.toString()).addValueEventListener(object: ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            holder.friends_name_txt.text =  snapshot.child("Pet").child("pet_name").value.toString()
+                            holder.friends_name_txt.text = snapshot.child("Pet").child("pet_name").value.toString()
                             val link = snapshot.child("Pet").child("pet_profile").value.toString()
                             Picasso.get().load(link).noFade().into(holder.friends_image)
                             holder.itemView.setOnClickListener {

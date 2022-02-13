@@ -180,8 +180,9 @@
                             android:layout_height="140dp"
                             android:layout_weight="1"
                             android:background="#00ffffff"
-                            android:padding="4dp"
-                            android:src="@drawable/lisa1" />
+                            android:padding="8dp"
+                            tools:srcCompat="@tools:sample/avatars"
+                            android:scaleType="centerCrop" />
 
                         <ImageView
                             android:id="@+id/image_location2"
@@ -189,8 +190,9 @@
                             android:layout_height="140dp"
                             android:layout_weight="1"
                             android:background="#00ffffff"
-                            android:padding="4dp"
-                            android:src="@drawable/lisa2" />
+                            android:padding="8dp"
+                            tools:srcCompat="@tools:sample/avatars"
+                            android:scaleType="centerCrop" />
 
                         <ImageView
                             android:id="@+id/image_location3"
@@ -198,8 +200,9 @@
                             android:layout_height="140dp"
                             android:layout_weight="1"
                             android:background="#00ffffff"
-                            android:padding="4dp"
-                            android:src="@drawable/lisa3" />
+                            android:padding="8dp"
+                            tools:srcCompat="@tools:sample/avatars"
+                            android:scaleType="centerCrop" />
                     </LinearLayout>
 
                     <Button
@@ -303,24 +306,27 @@
                         android:layout_height="140dp"
                         android:layout_weight="1"
                         android:background="#00ffffff"
-                        android:padding="4dp"
-                        android:src="@drawable/iu1"/>
+                        android:padding="8dp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:scaleType="centerCrop" />
                     <ImageView
                         android:id="@+id/pet_image2"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:layout_weight="1"
                         android:background="#00ffffff"
-                        android:padding="4dp"
-                        android:src="@drawable/iu1"/>
+                        android:padding="8dp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:scaleType="centerCrop" />
                     <ImageView
                         android:id="@+id/pet_image3"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:layout_weight="1"
                         android:background="#00ffffff"
-                        android:padding="4dp"
-                        android:src="@drawable/iu1"/>
+                        android:padding="8dp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:scaleType="centerCrop" />
 
                 </LinearLayout>
 

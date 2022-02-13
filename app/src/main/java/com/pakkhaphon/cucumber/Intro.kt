@@ -1,7 +1,6 @@
 package com.pakkhaphon.cucumber
 
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,7 +13,6 @@ class Intro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
-
         val preferences = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
         val FirstTime: String? = preferences.getString("FirstTimeInstall", "")
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -76,7 +75,7 @@ class ProfileDetail : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                //  onCancel
             }
         })
         return view

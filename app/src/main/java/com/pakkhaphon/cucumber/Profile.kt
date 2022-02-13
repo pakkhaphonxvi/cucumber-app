@@ -21,7 +21,6 @@ import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 
 class Profile : Fragment() {
 
@@ -137,7 +136,6 @@ class Profile : Fragment() {
 
         val button_save_person = view.findViewById<Button>(R.id.button_save_person)
         button_save_person.setOnClickListener {
-
             val address = view.findViewById<TextInputEditText>(R.id.edit_address)
             val road = view.findViewById<TextInputEditText>(R.id.edit_road)
             val area = view.findViewById<TextInputEditText>(R.id.edit_area)
@@ -150,8 +148,8 @@ class Profile : Fragment() {
             data["province"] = province.text.toString()
             data["area"] = area.text.toString()
             data["info"] = info.text.toString()
-
             userLocationDatabase.updateChildren(data)
+            Toast.makeText(activity, "data has been saved", Toast.LENGTH_LONG).show()
         }
 
         //uploadpet
@@ -163,18 +161,21 @@ class Profile : Fragment() {
         }
         uploadPetimage1 = view.findViewById(R.id.pet_image1)
         uploadPetimage1.setOnClickListener {
+            Log.d("pet", "pet 1")
             val i = Intent(Intent.ACTION_PICK)
             i.type = "image/*"
             startActivityForResult(i,5)
         }
         uploadPetimage2 = view.findViewById(R.id.pet_image2)
         uploadPetimage2.setOnClickListener {
+            Log.d("pet", "pet 2")
             val i = Intent(Intent.ACTION_PICK)
             i.type = "image/*"
             startActivityForResult(i,6)
         }
-        uploadPetimage3 = view.findViewById(R.id.pet_image2)
+        uploadPetimage3 = view.findViewById(R.id.pet_image3)
         uploadPetimage3.setOnClickListener {
+            Log.d("pet", "pet 3")
             val i = Intent(Intent.ACTION_PICK)
             i.type = "image/*"
             startActivityForResult(i,7)
@@ -183,11 +184,9 @@ class Profile : Fragment() {
         var pet_sex = ""
         val button_save_pet = view.findViewById<Button>(R.id.button_save_pet)
         button_save_pet.setOnClickListener {
-
             val pet_name = view.findViewById<TextInputEditText>(R.id.edit_petname)
             val pet_info = view.findViewById<TextInputEditText>(R.id.edit_info_pet)
             val data = HashMap<String, Any>()
-
             if(inputMale.isChecked) {
                 pet_sex = inputMale.text.toString()
             }
@@ -198,13 +197,12 @@ class Profile : Fragment() {
             data["pet_name"] = pet_name.text.toString()
             data["pet_sex"] = pet_sex
             data["pet_info"] = pet_info.text.toString()
-
             userPetDatabase.updateChildren(data)
-
+            Toast.makeText(activity, "data has been saved", Toast.LENGTH_LONG).show()
         }
 
         //retrieved data from userpet db
-        userPetDatabase.addValueEventListener(object :ValueEventListener {
+        userPetDatabase.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val link = snapshot.child("pet_profile").value.toString()
                 val link1 = snapshot.child("pet_image1").value.toString()
@@ -239,7 +237,7 @@ class Profile : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 0) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             selectPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, selectPhotoUri)
             val bitmaDrawable = BitmapDrawable(bitmap)
@@ -248,7 +246,7 @@ class Profile : Fragment() {
             uploadimageperson()
         }
 
-        if(requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 1) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             val uri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
@@ -257,7 +255,7 @@ class Profile : Fragment() {
             uploadimagelocation(uri)
         }
 
-        if(requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 2) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             val uri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
@@ -266,7 +264,7 @@ class Profile : Fragment() {
             uploadimagelocation1(uri)
         }
 
-        if(requestCode == 3 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 3) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             val uri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
@@ -275,7 +273,7 @@ class Profile : Fragment() {
             uploadimagelocation2(uri)
         }
 
-        if(requestCode == 4 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 4) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             val uri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
@@ -284,7 +282,7 @@ class Profile : Fragment() {
             uploadimagepet(uri)
         }
 
-        if(requestCode == 5 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 5) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             val uri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
@@ -293,7 +291,7 @@ class Profile : Fragment() {
             uploadimagepet1(uri)
         }
 
-        if(requestCode == 6 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 6) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             val uri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)
@@ -302,7 +300,7 @@ class Profile : Fragment() {
             uploadimagepet2(uri)
         }
 
-        if(requestCode == 7 && resultCode == Activity.RESULT_OK && data != null) {
+        if((requestCode == 7) && (resultCode == Activity.RESULT_OK) && (data != null)) {
             val uri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             val bitmapDrawable = BitmapDrawable(bitmap)

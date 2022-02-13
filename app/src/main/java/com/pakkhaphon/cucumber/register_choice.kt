@@ -3,20 +3,15 @@ package com.pakkhaphon.cucumber
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.FirebaseApp
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class register_choice: AppCompatActivity() {
 
     private lateinit var databaseref: DatabaseReference
-    var id:Long = 0
     private lateinit var mAuth: FirebaseAuth
+    var id:Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -131,8 +126,11 @@ class register_choice: AppCompatActivity() {
                                         data1["pet_name"] = ""
                                         data1["pet_sex"] = ""
                                         petdata.setValue(data1)
+                                        finish()
                                     }
                             }
+                        } else {
+                            inputEmail.setError("This E-mail has been used already")
                         }
                 }
         }

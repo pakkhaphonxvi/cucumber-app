@@ -3,13 +3,12 @@ package com.pakkhaphon.cucumber
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
+class MainActivity: AppCompatActivity() {
 
     private lateinit var Auth: FirebaseAuth
     lateinit var firebaseAuth:FirebaseAuth
@@ -24,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         val SignIn_button = findViewById<Button>(R.id.button_signin)
 
         Auth = FirebaseAuth.getInstance()
-        SignUp_button.setOnClickListener{
-            val i = Intent(this,register_choice::class.java)
+        SignUp_button.setOnClickListener {
+            val i = Intent(this, register_choice::class.java)
             startActivity(i)
         }
 
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     private fun checkuser() {
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null) {
-            startActivity(Intent(this@MainActivity,HomeActivity::class.java))
+            startActivity(Intent(this@MainActivity, HomeActivity::class.java))
             finish()
         }
     }
@@ -48,30 +47,22 @@ class MainActivity : AppCompatActivity() {
         val email:String = email_text.text.toString()
         val password:String = pass_text.text.toString()
 
-        if(email_text.text.toString().isEmpty()){
+        if(email_text.text.toString().isEmpty()) {
             email_text.setError("Email is null")
         }
-        if(pass_text.text.toString().isEmpty()){
+        if(pass_text.text.toString().isEmpty()) {
             pass_text.setError("Password is null")
         }
 
         if((email_text.text.toString().isNotEmpty()) && (pass_text.text.toString().isNotEmpty())) {
             Auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    //to do
+                if(task.isSuccessful) {
                     startActivity(Intent(this@MainActivity,HomeActivity::class.java))
                 }
-                else{
-                    MaterialAlertDialogBuilder(this)
-                        .setTitle("Alert")
-                        .setMessage("E-mail ro Password invalid. Please try again.")
-                        .setPositiveButton("OK"){dialog,which ->
-
-                        }
-                        .show()
+                else {
+                    MaterialAlertDialogBuilder(this).setTitle("Alert").setMessage("E-mail ro Password invalid. Please try again.").setPositiveButton("OK") { dialog,which -> }.show()
                 }
             }
         }
     }
 }
-

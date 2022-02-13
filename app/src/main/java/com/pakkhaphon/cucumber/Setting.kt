@@ -34,7 +34,6 @@ class Setting : Fragment() {
         val inputSender = view.findViewById<RadioButton>(R.id.radioSender)
         val inputReceiver = view.findViewById<RadioButton>(R.id.radioReceiver)
         val button_save = view.findViewById<Button>(R.id.button_save_setting)
-//        val userdatabase = FirebaseDatabase.getInstance().reference.child("Users").child(FirebaseAuth.getInstance().currentUser!!.uid)
         var attention = ""
         var gender = ""
 
@@ -81,6 +80,7 @@ class Setting : Fragment() {
             data["attention"] = attention
             data["gender"] = gender
             userDatabase.updateChildren(data)
+            Toast.makeText(activity, "data has been saved", Toast.LENGTH_LONG).show()
         }
         return view
     }
