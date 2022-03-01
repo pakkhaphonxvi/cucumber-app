@@ -20,7 +20,7 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".register_choice"
+            android:name=".Register"
             android:exported="false" />
         <activity android:name=".MainActivity"
             android:exported="false"/>
