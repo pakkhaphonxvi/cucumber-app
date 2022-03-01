@@ -15,7 +15,7 @@ class register_choice: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_choice)
+        setContentView(R.layout.activity_register)
         val btsignup = findViewById<Button>(R.id.buttonsingup)
         btsignup.setOnClickListener {
             register()
