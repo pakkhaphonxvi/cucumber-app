@@ -65,6 +65,40 @@
         <entry key="..\:/Users/pakkhaphon/Desktop/Project/cucumber-app/app/src/main/res/layout/spinnerdesign.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pakkhaphon/Desktop/Project/cucumber-app/app/src/main/res/layout/users_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pakkhaphon/Desktop/Project/cucumber-app/app/src/main/res/menu/menu_bar.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/button_login_page_bg.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/chat_bg.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/custom_bg_spinner.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/edittext_login_page.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/edittext_page_signup.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/ic_baseline_chat_bubble_24.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/ic_baseline_supervised_user_circle_24.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/message_box_bg.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/receive_round.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/sent_round.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/drawable/spinner_bg.xml" value="0.3223684210526316" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/activity_chat.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/activity_home.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/activity_intro.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/activity_main.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/activity_register.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/activity_register_choice.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/fragment_friendslist.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/fragment_home.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/fragment_profile.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/fragment_profile_detail.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/fragment_setting.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/friends_list.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/layout_dialog.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/receive.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/sent.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/spinnerdesign.xml" value="0.17149122807017544" />
+        <entry key="..\:/Users/pakkhaphon/Desktop/Projects/cucumber-app/app/src/main/res/layout/users_list.xml" value="0.17149122807017544" />
       </map>
     </option>
   </component>
