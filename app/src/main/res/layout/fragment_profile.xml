@@ -102,20 +102,20 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                     android:gravity="center">
 
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Info"
                         style="@style/edittext_bg"
                         android:layout_margin="10dp">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="#ffffff"
                             android:id="@+id/edit_Info_user"/>
-                    </com.google.android.material.textfield.TextInputLayout>
 
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -123,11 +123,13 @@
                         android:hint="Address"
                         style="@style/edittext_bg"
                         android:layout_margin="10dp">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="#ffffff"
                             android:id="@+id/edit_address"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -136,11 +138,13 @@
                         android:hint="Road"
                         style="@style/edittext_bg"
                         android:layout_margin="10dp">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="#ffffff"
                             android:id="@+id/edit_road"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -149,11 +153,13 @@
                         android:hint="Area"
                         style="@style/edittext_bg"
                         android:layout_margin="10dp">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="#ffffff"
                             android:id="@+id/edit_area"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -162,11 +168,13 @@
                         android:hint="Province"
                         style="@style/edittext_bg"
                         android:layout_margin="10dp">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textColor="#ffffff"
                             android:id="@+id/edit_province"/>
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <LinearLayout
@@ -203,6 +211,7 @@
                             android:padding="8dp"
                             tools:srcCompat="@tools:sample/avatars"
                             android:scaleType="centerCrop" />
+
                     </LinearLayout>
 
                     <Button
@@ -309,6 +318,7 @@
                         android:padding="8dp"
                         tools:srcCompat="@tools:sample/avatars"
                         android:scaleType="centerCrop" />
+
                     <ImageView
                         android:id="@+id/pet_image2"
                         android:layout_width="match_parent"
@@ -318,6 +328,7 @@
                         android:padding="8dp"
                         tools:srcCompat="@tools:sample/avatars"
                         android:scaleType="centerCrop" />
+
                     <ImageView
                         android:id="@+id/pet_image3"
                         android:layout_width="match_parent"

@@ -19,7 +19,6 @@
             android:layout_marginTop="100dp"
             android:orientation="vertical">
 
-
             <EditText
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="match_parent"
@@ -36,7 +35,6 @@
 
             </EditText>
 
-
             <EditText
                 android:id="@+id/editTextTextPassword"
                 android:layout_width="match_parent"
@@ -52,7 +50,6 @@
                 android:textColorHint="@color/gray">
 
             </EditText>
-
 
             <Button
                 style="@style/button_bg"
@@ -73,7 +70,9 @@
                 android:textColor="@color/white"
                 android:layout_marginTop="10dp"
                 android:text="Sign Up" />
+
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
