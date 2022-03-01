@@ -7,7 +7,7 @@ import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-class register_choice: AppCompatActivity() {
+class Register: AppCompatActivity() {
 
     private lateinit var databaseref: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
@@ -104,7 +104,7 @@ class register_choice: AppCompatActivity() {
                             data["attention"] = attention
                             databaseref.updateChildren(data).addOnCompleteListener {
                                     task -> if(task.isSuccessful) {
-                                        startActivity(Intent(this@register_choice,MainActivity::class.java))
+                                        startActivity(Intent(this@Register, MainActivity::class.java))
                                         val userdata = FirebaseDatabase.getInstance().reference.child("Users").child(mAuth.currentUser!!.uid).child("Local")
                                         val data = HashMap<String, Any>()
                                         data["address"] = ""
